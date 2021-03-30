@@ -1,23 +1,40 @@
 const courses = document.querySelector('#coursesContainer');
-const text = document.querySelector('#test');
+const displayAmountOfCourses = document.querySelector('#info-text');
 const categories = document.querySelector('#courseCategories');
 const filterButtons = document.querySelector('.filter-button');
 
 const showAllCourses = document.querySelector('#showAllCourses').addEventListener('click', () => {
     loadCoarses().then(data => createCourseContainer(data)).catch(err => console.log(err));
+    
+    courseCategory = 'Visa alla';
 });
 
 const bestSellersButton = document.querySelector('#bestSellers').addEventListener('click', () => {
     bestsellerCourses().then(data => createCourseContainer(data)).catch(err => console.log(err));
 
+    courseCategory = 'Bästsäljare';
 });
 
+let courseCategory;
 let courseCategories = [];
 
 const baseUrl = 'http://localhost:3000/courses';
 
 function updateTextParagraph(count) {
-    text.innerHTML = `Choose from ${count} online video courses with new additions published every month`;
+
+    let text;
+
+    switch (courseCategory) {
+        case 'Bästsäljare':
+            text = 'Det här är våra tre högst rankade kurser';
+            break;
+        case 'Visa alla':
+            text = `Vi har ${count} stycken video on demand kurser i vårat bibliotek`;
+            break;
+        default: text = `Vi har ${count} stycken video on demand kurser inom ${courseCategory}`;
+
+    }
+    displayAmountOfCourses.innerHTML = text;
 }
 
 function createCourseContainer(courseList) {
@@ -60,7 +77,7 @@ function displayCourse(course) {
 
 async function bestsellerCourses() {
 
-    const url = `${baseUrl}?_sort=score&_order=desc`;
+    const url = `${baseUrl}?_sort=score&_order=desc&_limit=3`;
 
     const response = await fetch(url);
     if (!response.ok) {
@@ -78,7 +95,7 @@ async function filterCourses(course) {
     if (!response.ok) {
         throw new Error(response.statusText);
     }
-    
+
     return response.json();
 }
 
@@ -88,14 +105,13 @@ function createFilterButton(course) {
     var t = document.createTextNode(course);
 
     btn.setAttribute("class", "filter-button");
-    // btn.setAttribute("class", `${course}-button`);
     btn.addEventListener('click', () => {
         filterCourses(course).then(data => createCourseContainer(data)).catch(err => console.log(err));
+        courseCategory = course;
     });
 
     btn.appendChild(t);
     categories.appendChild(btn);
 }
-
 
 loadCoarses().then(data => createCourseContainer(data)).catch(err => console.log(err));
