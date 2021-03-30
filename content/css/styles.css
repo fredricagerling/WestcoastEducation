@@ -60,9 +60,7 @@ nav {
 }
 
 .logo {
-  padding: 1rem;
-  color: var(--light-color);
-  font-size: 1.5rem;
+  margin:1rem;
 }
 
 .nav-links {
@@ -119,7 +117,7 @@ nav {
   padding: 1rem;
 }
 
-/* Buttons and misc */
+/* Buttons */
 
 .btn {
   font-size: 1rem;
@@ -186,7 +184,8 @@ footer {
 .footer-2 {
   display: flex;
   align-items: center;
-  height: 3rem;
+  min-height: 3rem;
+  max-height: auto;
   color: var(--light-color);
   font-size: 0.7rem;
   padding: 0 1rem 0 1rem;
@@ -222,3 +221,6 @@ footer {
     padding:0;
     margin:0;
 }
+
+/*TODO: lägg till .landing här och fixa container som är 1200px.*/
+

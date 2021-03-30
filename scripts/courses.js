@@ -1,3 +1,5 @@
+const baseUrl = 'http://localhost:3000/courses';
+
 const courses = document.querySelector('#coursesContainer');
 const displayAmountOfCourses = document.querySelector('#info-text');
 const categories = document.querySelector('#courseCategories');
@@ -18,10 +20,7 @@ const bestSellersButton = document.querySelector('#bestSellers').addEventListene
 let courseCategory;
 let courseCategories = [];
 
-const baseUrl = 'http://localhost:3000/courses';
-
 function updateTextParagraph(count) {
-
     let text;
 
     switch (courseCategory) {
@@ -32,29 +31,17 @@ function updateTextParagraph(count) {
             text = `Vi har ${count} stycken video on demand kurser i vårat bibliotek`;
             break;
         default: text = `Vi har ${count} stycken video on demand kurser inom ${courseCategory}`;
-
     }
     displayAmountOfCourses.innerHTML = text;
 }
 
 function createCourseContainer(courseList) {
-
     courses.innerHTML = '';
     updateTextParagraph(courseList.length)
+
     for (let course of courseList) {
         displayCourse(course);
     }
-
-}
-
-async function loadCoarses() {
-    const url = `${baseUrl}`;
-    const response = await fetch(url);
-    if (!response.ok) {
-        throw new Error(response.statusText);
-    }
-
-    return response.json();
 }
 
 function displayCourse(course) {
@@ -75,11 +62,23 @@ function displayCourse(course) {
     }
 }
 
+function createFilterButton(course) {
+    let button = document.createElement('button');
+    
+    button.textContent = course;
+    button.classList.add('filter-button');
+    categories.appendChild(button);
+
+    button.addEventListener('click', () => {
+        filterCourses(course).then(data => createCourseContainer(data)).catch(err => console.log(err));
+        courseCategory = course;
+    });
+}
+
 async function bestsellerCourses() {
-
     const url = `${baseUrl}?_sort=score&_order=desc&_limit=3`;
-
     const response = await fetch(url);
+
     if (!response.ok) {
         throw new Error(response.statusText);
     }
@@ -88,10 +87,9 @@ async function bestsellerCourses() {
 }
 
 async function filterCourses(course) {
-
     const url = `${baseUrl}?q=${course}`;
-
     const response = await fetch(url);
+
     if (!response.ok) {
         throw new Error(response.statusText);
     }
@@ -99,19 +97,15 @@ async function filterCourses(course) {
     return response.json();
 }
 
-function createFilterButton(course) {
+async function loadCoarses() {
+    const url = `${baseUrl}`;
+    const response = await fetch(url);
 
-    var btn = document.createElement("BUTTON");
-    var t = document.createTextNode(course);
+    if (!response.ok) {
+        throw new Error(response.statusText);
+    }
 
-    btn.setAttribute("class", "filter-button");
-    btn.addEventListener('click', () => {
-        filterCourses(course).then(data => createCourseContainer(data)).catch(err => console.log(err));
-        courseCategory = course;
-    });
-
-    btn.appendChild(t);
-    categories.appendChild(btn);
+    return response.json();
 }
 
 loadCoarses().then(data => createCourseContainer(data)).catch(err => console.log(err));

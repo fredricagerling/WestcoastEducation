@@ -1,5 +1,6 @@
-/*Navbar*/
-@media screen and (max-width: 768px) {
+/* NAVBAR */
+@media screen and (max-width: 805px) {
+  
   .nav-links {
     align-items: center;
     position: absolute;
@@ -73,10 +74,13 @@
 }
 
 /* FOOTER */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 805px) {
   .footer {
     flex-direction: row;
     height: auto;
+    flex-wrap: wrap;
+  }
+  .footer-2 {
     flex-wrap: wrap;
   }
 
@@ -86,30 +90,5 @@
 
   .footer-content:last-child {
     margin: 0;
-  }
-}
-
-/*Index*/
-
-@media screen and (max-width: 768px) {
-  .pitch {
-    flex-direction: column;
-    height: auto;
-    flex-direction: column-reverse;
-  }
-
-  .pitch-text {
-    width: 100%;
-  }
-
-  .pitch img {
-    width: 100%;
-  }
-
-  .promises {
-    flex-direction: column;
-  }
-  .promise {
-    max-width: 100%;
   }
 }
