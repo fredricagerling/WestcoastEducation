@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "courseNumber": 1001,
+    "title": "C# Nybörjare",
+    "teacher": "Bob Ross",
+    "courseType": "Programmering",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+  },
+  {
+    "id": 2,
+    "courseNumber": 1002,
+    "title": "C# Avancerad",
+    "teacher": "Bob Ross",
+    "courseType": "Programmering",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+  },
+  {
+    "id": 3,
+    "courseNumber": 1003,
+    "title": "JavaScript 101",
+    "teacher": "Berit Larsson",
+    "courseType": "Programmering",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+  },
+  {
+    "id": 4,
+    "courseNumber": 1004,
+    "title": "Scrum for dummies",
+    "teacher": "Benny Tjabo",
+    "courseType": "Agil",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+  },
+  {
+    "id": 5,
+    "courseNumber": 1005,
+    "title": "Det agila manifestot",
+    "teacher": "Benny Tjabo",
+    "courseType": "Agil",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+  },
+  {
+    "id": 6,
+    "courseNumber": 1006,
+    "title": "Projektledning 101",
+    "teacher": "Josef Sung",
+    "courseType": "Ledarskap",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+  },
+  {
+    "id": 7,
+    "courseNumber": 1007,
+    "title": "Java for dummies",
+    "teacher": "Agneta Javasson",
+    "courseType": "Programmering",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+  },
+  {
+    "id": 8,
+    "courseNumber": 1008,
+    "title": "Gör spel med C++",
+    "teacher": "Masahiro Sakurai",
+    "courseType": "Programmering",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+  },
+  {
+    "id": 9,
+    "courseNumber": 1009,
+    "title": "Webbutveckling med C#",
+    "teacher": "Bonito Fling",
+    "courseType": "Programmering",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+  }
+]

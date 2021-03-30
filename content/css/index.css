@@ -1,0 +1,91 @@
+.promises {
+  justify-self: center;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem 0 2rem 0;
+}
+
+.promise {
+  max-width: 25%;
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  color: var(--light-color);
+}
+
+.landing {
+  background-blend-mode: darken;
+  background: rgba(0, 0, 0, 0.3)
+    url("../img/photo-1503428593586-e225b39bddfe.jfif") no-repeat center/cover;
+  /* background: url("../img/photo-1503428593586-e225b39bddfe.jfif") no-repeat center/cover ; */
+  height: 35rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.landing-text {
+  display: flex;
+  flex-direction: column;
+  color: var(--light-color);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+  font-size: 1.1rem;
+  max-width: 1200px;
+  width: 100%;
+  padding: 1rem;
+}
+
+.landing-text p {
+  max-width: 678px;
+}
+
+.sales-pitch {
+  color: var(--dark-color);
+  background: var(--light-color);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.pitch {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  padding: 1rem;
+  height: 388px;
+}
+
+.pitch-text {
+  width: 50%;
+  justify-content: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pitch-text p,
+h2,
+.button-container {
+  padding: 1rem;
+}
+
+.pitch img {
+  width: 50%;
+  object-fit: cover;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.promise {
+  border-radius: 4px;
+}

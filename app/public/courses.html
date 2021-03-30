@@ -1,0 +1,94 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Westcoast Education</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/content/css/styles.css">
+    <link rel="stylesheet" href="/content/css/courses.css">
+    <link rel="stylesheet" href="/content/css/mobile.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img img class="logo" src="/content/img/logo2.png" alt="Westcoast Education"></a>
+            <ul class="nav-links">
+                <li class="nav-item"><a href="courses.html">Våra utbildningar</a></li>
+                <li class="nav-item"><a href="#">Jobb</a></li>
+                <li class="nav-item"><a href="#">Om oss</a></li>
+                <li class="nav-item"><a href="#">Kontakt</a></li>
+                <li><a href="#"><button id="loginButton">Logga in</button></a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="landing">
+            <div class="landing-text">
+                <h1>Plugga på distans</h1>
+                <p>Anpassa dina studier utifrån dina behov - när och där det passar dig!</p>
+            </div>
+        </div>
+        <div id="courseCategories">
+            <button class="filter-button" id="showAllCourses">Visa alla</button>
+            <button class="filter-button" id="bestSellers">Bästsäljare</button>
+        </div>
+        <div class="content-container">
+            <h1>Våra kurser</h1>
+            <p id="test"></p>
+            
+           
+            <div id="coursesContainer"></div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <ul class="footer-content">
+                <h4>Mer om Westcoast Education</h4>
+                <li>Topplistan</li>
+                <li>Om Westcoast</li>
+                <li>Här finns vi</li>
+                <li>Ledige Jobb</li>
+                <li>Press</li>
+            </ul>
+            <div class="footer-content">
+                <h4>Kontakta oss</h4>
+                <p>Huvudkontor<br>
+                    Westcoast Education AB<br>
+                    Lillekärr Södra 170<br>
+                    425 31 Hisings Kärra<br><br>
+                    contact@westcoasteducation.se</p>
+            </div>
+
+            <div class="footer-content">
+                <h4>Prenumerera på vårt nyhetsbrev</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem aliquam quis iure
+                    dicta sequi.</p>
+                <button class="btn">Prenumerera</button>
+            </div>
+        </div>
+        <div class="footer-2">
+            <div id="social-media">
+                <img src="/content/img/iconmonstr-facebook-4-240.png" alt="" srcset="">
+                <img src="/content/img/iconmonstr-instagram-14-240.png" alt="" srcset="">
+                <img src="/content/img/iconmonstr-linkedin-4-240.png" alt="" srcset="">
+                <img src="/content/img/iconmonstr-youtube-9-240.png" alt="" srcset="">
+            </div>
+            <span>© Westcoast Education AB. En del av Academedia. Alla rättigheter reserverade.</span>
+        </div>
+    </footer>
+    <script src="/scripts/navbar.js"></script>
+    <script src="/scripts/courses.js"></script>
+</body>
+
+</html>
