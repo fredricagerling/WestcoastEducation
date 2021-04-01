@@ -81,5 +81,20 @@
       "score": 2.9,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
     }
+  ],
+  
+  "courseTypes": [
+    {
+      "id": 1,
+      "type": "Programmering"
+    },
+    {
+      "id": 2,
+      "type": "Agil"
+    },
+    {
+      "id": 3,
+      "type": "Ledarskap"
+    }
   ]
 }
