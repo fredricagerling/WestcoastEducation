@@ -1,5 +1,5 @@
 /* NAVBAR */
-@media screen and (max-width: 805px) {
+@media screen and (max-width: 815px) {
   
   .nav-links {
     align-items: center;
@@ -74,7 +74,7 @@
 }
 
 /* FOOTER */
-@media screen and (max-width: 805px) {
+@media screen and (max-width: 810px) {
   .footer {
     flex-direction: row;
     height: auto;

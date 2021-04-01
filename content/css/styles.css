@@ -81,7 +81,6 @@ nav {
 #loginButton {
   background-color: transparent;
   margin-left: 2rem;
-  margin-right: 1rem;
   border: 1px solid var(--light-color);
   padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 6px;
