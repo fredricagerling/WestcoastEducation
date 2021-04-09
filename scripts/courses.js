@@ -29,7 +29,7 @@ async function bestsellerCourses() {
 }
 
 async function filterCourses(course) {
-    const url = `${baseUrl}?q=${course}`;
+    const url = `${baseUrl}?courseType_like=${course}`;
     const response = await fetch(url);
 
     if (!response.ok) {
