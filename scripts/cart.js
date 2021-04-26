@@ -14,8 +14,7 @@ let cartArray = [];
 
 function populateCart() {
   cartArray = JSON.parse(myStorage.getItem('cartItems'));
-
-  if (cartArray != null) {
+  if (cartArray != null && cartArray.length > 0) {
     unsetEmptyCart();
 
     for (let i = 0; i < cartArray.length; i++) {
@@ -25,7 +24,7 @@ function populateCart() {
   updateCartTotal();
 }
 
-function createCartItem(cartItem, i){
+function createCartItem(cartItem, index){
   courseContainer.insertAdjacentHTML(
     'beforeend',
     `<div class="cart-item" id="item${cartItem.courseNumber}"}>
@@ -37,15 +36,15 @@ function createCartItem(cartItem, i){
     </div>`);
 
   calculateTotal += cartItem.price;
-  createDeleteButton(cartItem, i);
+  createDeleteButton(cartItem, index);
 }
 
-function createDeleteButton(course, i) {
+function createDeleteButton(course, index) {
   const button = document.createElement('button');
   button.innerHTML = '&times;';
 
   button.addEventListener('click', () => {
-    console.log(cartArray.splice(i, 1));
+    console.log(cartArray.splice(index, 1));
     myStorage.setItem(`cartItems`, JSON.stringify(cartArray))
     location.reload();
   });
