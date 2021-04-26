@@ -1,6 +1,6 @@
 const categories = document.querySelector('#courseCategories');
 
-async function loadCoarseTypes() {
+async function loadCourseTypes() {
     const url = 'http://localhost:3000/courseTypes';
     const response = await fetch(url);
 
@@ -22,7 +22,6 @@ function displayFilterButton(courseType) {
 
     button.textContent = courseType;
     button.classList.add('filter-button');
-    button.id = `${courseType}Button`;
     categories.appendChild(button);
 
     button.addEventListener('click', () => {
@@ -32,4 +31,4 @@ function displayFilterButton(courseType) {
 }
 
 
-loadCoarseTypes().then(data => createFilterButton(data)).catch(err => console.log(err));
+loadCourseTypes().then(data => createFilterButton(data)).catch(err => console.log(err));

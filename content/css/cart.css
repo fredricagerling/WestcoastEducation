@@ -1,0 +1,143 @@
+.landing {
+  background-blend-mode: darken;
+  background-color: rgb(20, 20, 20);
+  height: 6rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding:1rem;
+}
+
+.cart-item{
+  display: flex;
+  padding:0.5rem;
+  justify-content: space-between;
+  border: 1px solid rgb(202, 202, 202);;
+  margin:0.5rem;
+  border-radius: 6px;
+}
+#courseContainer{
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+}
+.cart-item-description{
+  display:flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.coursePrice{
+  margin: 0 0.5rem;
+}
+
+.cart-item button{
+  width:1.55rem;
+  height:1.5em;
+  background-color:red;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  color:white;
+}
+
+.landing-text {
+  display: flex;
+  flex-direction: column;
+  color: var(--light-color);
+  font-weight: 400;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.landing-text h2{
+  padding: 0;
+}
+
+.shopping-cart-container{
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding:1rem;
+}
+
+#shoppingCart{
+  min-height: 30rem;
+  width: 100%;
+  border: 1px solid rgb(202, 202, 202);
+  padding:1rem;
+  border-radius: 6px;
+  flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#total{
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap:0.5rem;
+}
+
+#commitPurchase{
+  text-transform: uppercase;
+  display:flex;
+  justify-content: center;
+}
+
+#addCoupon{
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  display:flex;
+  justify-content: center;
+}
+
+#enterCoupon{
+  height:2rem;
+  border-radius: 4px;
+  border: 1px solid rgb(202, 202, 202);
+  padding: 0.5rem;
+  width: 12rem;
+}
+
+#emptyCart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+#emptyCart h3{
+  margin-top: 1rem;
+  color:rgb(202, 202, 202);
+}
+
+#emptyCart .fa-shopping-cart{
+  font-size: 7rem;
+  color: rgb(202, 202, 202);
+}
+
+.hidden{
+  display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  .shopping-cart-container{
+    flex-direction: column;
+  }
+  #total{
+    align-items: center;
+  }
+  #totalSum{
+    display:flex;
+    align-items: center;
+    gap:0.5rem;
+  }
+}

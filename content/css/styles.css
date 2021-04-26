@@ -15,8 +15,13 @@
 
 }
 
-body {
+html, body {
   font-family: "Open Sans", sans-serif;
+  height: 100%;
+}
+body {
+ display:flex;
+ flex-direction: column;
 }
 
 p {
@@ -54,9 +59,6 @@ nav {
   width: 100%;
   max-width: 1200px;
   right: 0;
-  font-weight: 600;
-  font-size: 1.2rem;
-  
 }
 
 .logo {
@@ -65,12 +67,11 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 0.6rem;
   list-style: none;
   padding: 1rem;
   max-width: 1200px;
   align-items: center;
-  gap:1rem;
+  gap:1.5rem;
 }
 
 .nav-links a {
@@ -80,14 +81,12 @@ nav {
 
 #loginButton {
   background-color: transparent;
-  margin-left: 2rem;
   border: 1px solid var(--light-color);
   padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 6px;
   color: var(--light-color);
   cursor: pointer;
-  font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1rem;
   outline: none !important;
 }
 
@@ -114,6 +113,11 @@ nav {
   margin-left: auto;
   display: none;
   padding: 1rem;
+}
+
+.fa-shopping-cart{
+  color:white;
+  font-size: 1.2rem;
 }
 
 /* Buttons */
@@ -159,6 +163,17 @@ nav {
   transition: 0.2s;
 }
 
+.btn:disabled{
+  background-color: var(--primary-button);
+  color: var(--dark-color);
+  opacity: 0.5;
+  cursor: default;
+}
+
+main{
+  flex: 1 0 auto;
+}
+
 /* FOOTER */
 
 .footer {
@@ -166,6 +181,7 @@ nav {
   display: flex;
   max-width: 1200px;
   /* padding: 1rem; */
+  flex-shrink: 0;
 }
 
 .footer p,

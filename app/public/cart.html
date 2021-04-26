@@ -10,14 +10,13 @@
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/content/css/styles.css">
-  <link rel="stylesheet" href="/content/css/courses.css">
+  <link rel="stylesheet" href="/content/css/cart.css">
   <link rel="stylesheet" href="/content/css/styles-mobile.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
   <script src="/scripts/navbar.js" defer></script>
-  <script src="/scripts/courses.js" defer></script>
-  <script src="/scripts/courseTypes.js" defer></script>
+  <script src="/scripts/cart.js" defer></script>
 </head>
 
 <body>
@@ -41,21 +40,29 @@
   <main>
     <section class="landing">
       <div class="landing-text">
-        <h1>Plugga på distans</h1>
-        <p>Anpassa dina studier utifrån dina behov - när och där det passar dig!</p>
+        <h2>Varukorg</h2>
       </div>
     </section>
-    <div id="courseCategories">
-      <button class="filter-button" id="showAllCourses">Visa alla</button>
-      <button class="filter-button" id="bestSellers">Bästsäljare</button>
-    </div>
-    <div class="content-container">
-      <h1>Våra kurser</h1>
-      <p id="info-text"></p>
-      <div id="coursesContainer">
-        <div class="course"></div>
+    <section class="shopping-cart-container">
+      <div id="shoppingCart">
+        <div id="courseContainer">
+        </div>
+        <div id="emptyCart">
+          <i class="fas fa-shopping-cart"></i>
+          <h3>Din varukorg är tom</h3>
+        </div>
+        <button id="commitPurchase" class="btn" disabled>Slutför köp</button>
       </div>
-    </div>
+      <div id="total">
+
+        <div id="totalSum">
+          <h4>Total:</h4>
+          <h2><span id="totalPrice">0</span> kr</h2>
+        </div>
+        <input id="enterCoupon" type="text" placeholder="Har du en värdekod?" />
+        <button id="addCoupon" class="btn-secondary">Lägg till kod</button>
+      </div>
+    </section>
   </main>
   <footer>
     <div class="footer">

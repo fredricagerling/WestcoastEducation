@@ -17,7 +17,7 @@ function navSlide() {
 function slider() {
     if (nav.classList.contains('nav-active')) {
         nav.style.animation = `navbarFadeOut 0.3s ease backwards`;
-    } else {
+    }else {
         nav.style.animation = `navbarFadeIn 0.3s ease forwards`;
     }
 }
