@@ -1,5 +1,5 @@
 const baseUrl = 'http://localhost:3000/courses';
-const myStorage = window.sessionStorage;
+const datStorage = window.sessionStorage;
 const courses = document.querySelector('#coursesContainer');
 const displayAmountOfCourses = document.querySelector('#info-text');
 const allCoursesButton = document.querySelector('#showAllCourses').addEventListener('click', () => {
@@ -14,8 +14,7 @@ const bestSellersButton = document.querySelector('#bestSellers').addEventListene
   selectedCategory = 'Bästsäljare';
 });
 
-
-let leCart = [];
+let leCart = []; //Byt namn för fan
 let selectedCategory = 'Visa alla';
 
 async function loadCoarses() {
@@ -43,13 +42,15 @@ function createPurchaseButton(index, course) {
   const button = document.createElement('button');
   button.textContent = 'Lägg i kundkorg';
   button.classList.add('add-to-cart');
+  
   button.addEventListener('click', () => {
-    if(!leCart.includes(course)){
+
+    if (!leCart.some(e => e.id === course.id)) {
       leCart.push(course)
-      myStorage.setItem(`cartItems`, JSON.stringify(leCart))
+      datStorage.setItem(`cartItems`, JSON.stringify(leCart));
+      updateCartCounter();
     }
   });
-
   const courseContainer = document.getElementsByClassName('course')[index];
   courseContainer.appendChild(button);
 }
@@ -104,4 +105,16 @@ async function filterCourses(course) {
   return response.json();
 }
 
+function checkSessionStorage(){
+  const sessionStorageCart = JSON.parse(datStorage.getItem('cartItems'));
+
+  if(sessionStorageCart != null)
+  {
+    console.log(sessionStorageCart)
+    leCart = [...sessionStorageCart];
+    console.log(leCart);
+  }
+}
+
 loadCoarses().then(data => createCourseContainer(data)).catch(err => console.log(err));
+checkSessionStorage();

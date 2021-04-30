@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Westcoast Education</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/content/css/styles.css">
+  <link rel="stylesheet" href="/content/css/styles-mobile.css">
+  <link rel="stylesheet" href="/content/css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="../public/index.html"><i class="fas fa-arrow-left"><span id="hehe"> Tillbaka till sidan</span></i></a>
+    </nav>
+  </header>
+  <main>
+    <div id="addCourseModal" class="modal">
+      <div id="container">
+        <h2>Lägg till ny kurs</h2>
+        <form>
+          <div class="input-window">
+            <span>Kursen titel (obligatorisk)</span>
+            <input type="text" id="fname" name="fname" placeholder="Titel">
+          </div>
+          <div class="input-window">
+            <span>Beskrivning av kursen</span>
+            <input type="text" id="lname" name="lname" placeholder="Beskrivning">
+          </div>
+          <div id="finalRow">
+            <div class="input-window">
+              <span>Kursens lärare</span>
+              <input type="text" id="lname" name="lname" placeholder="Lärare">
+            </div>
+            <div class="input-window">
+              <span>Kursens pris</span>
+              <input type="text" id="lname" name="lname" placeholder="Pris">
+            </div>
+            <button id="addCourse" class="btn">Lägg till kurs</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

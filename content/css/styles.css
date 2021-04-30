@@ -2,6 +2,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
 }
 /* Styling */
 :root {
@@ -12,11 +14,9 @@
   --navbar-height: 5rem;
   --primary-button: #a8e883;
   --hover-button: #91d26c;
-
 }
 
 html, body {
-  font-family: "Open Sans", sans-serif;
   height: 100%;
 }
 body {
@@ -118,6 +118,22 @@ nav {
 .fa-shopping-cart{
   color:white;
   font-size: 1.2rem;
+}
+
+
+#cartCounter{
+  position: absolute;
+  text-align: center;
+  margin-left: -7px;
+  font-size: 0.8rem;
+  top: 0.9rem;
+  color: #fff;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  width: 19px;
+  height: 19px;
+  padding-top: 3px;
+  font-weight: 400;
 }
 
 /* Buttons */
@@ -235,6 +251,10 @@ footer {
 
     padding:0;
     margin:0;
+}
+
+.hidden{
+  display: none !important;
 }
 
 /*TODO: lägg till .landing här och fixa container som är 1200px.*/

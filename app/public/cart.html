@@ -12,11 +12,14 @@
   <link rel="stylesheet" href="/content/css/styles.css">
   <link rel="stylesheet" href="/content/css/cart.css">
   <link rel="stylesheet" href="/content/css/styles-mobile.css">
+  <link rel="stylesheet" href="/content/css/admin.css">
+  <link rel="stylesheet" href="/content/css/add-course.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
   <script src="/scripts/navbar.js" defer></script>
   <script src="/scripts/cart.js" defer></script>
+  <script src="/scripts/login.js" defer></script>
 </head>
 
 <body>
@@ -25,10 +28,10 @@
       <a href="index.html"><img src="/content/img/logo2.png" alt="Westcoast Education"></a>
       <ul class="nav-links">
         <li class="nav-item"><a href="courses.html">Våra utbildningar</a></li>
-        <li class="nav-item"><a href="#">Jobb</a></li>
         <li class="nav-item"><a href="#">Om oss</a></li>
-        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+        <li><a href="cart.html"><i class="fas fa-shopping-cart"><span id="cartCounter">0</span></i></a></li>
         <li><a href="#"><button id="loginButton">Logga in</button></a></li>
+        <li><a href="#"><button id="adminButton">Lägg till kurs</button></a></li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -100,6 +103,32 @@
       <span>© Westcoast Education AB. En del av Academedia. Alla rättigheter reserverade.</span>
     </div>
   </footer>
+  <div id="addCourseModal" class="modal">
+    <span class="closeButton">&times;</span>
+    <div id="container">
+      <h2>Lägg till ny kurs</h2>
+      <form>
+        <div class="input-window">
+          <span>Kursen titel (obligatorisk)</span>
+          <input type="text" id="fname" name="fname" placeholder="Titel">
+        </div>
+        <div class="input-window">
+          <span>Beskrivning av kursen</span>
+          <input type="text" id="lname" name="lname" placeholder="Beskrivning">
+        </div>
+        <div id="finalRow">
+          <div class="input-window">
+            <span>Kursens lärare</span>
+            <input type="text" id="lname" name="lname" placeholder="Lärare">
+          </div>
+          <div class="input-window">
+            <span>Kursens pris</span>
+            <input type="text" id="lname" name="lname" placeholder="Pris">
+          </div>
+          <button id="addCourse" class="btn">Lägg till kurs</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
-
 </html>

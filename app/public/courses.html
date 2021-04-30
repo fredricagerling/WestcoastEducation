@@ -12,12 +12,14 @@
   <link rel="stylesheet" href="/content/css/styles.css">
   <link rel="stylesheet" href="/content/css/courses.css">
   <link rel="stylesheet" href="/content/css/styles-mobile.css">
+  <link rel="stylesheet" href="/content/css/admin.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
   <script src="/scripts/navbar.js" defer></script>
   <script src="/scripts/courses.js" defer></script>
   <script src="/scripts/courseTypes.js" defer></script>
+  <script src="/scripts/login.js" defer></script>
 </head>
 
 <body>
@@ -26,10 +28,10 @@
       <a href="index.html"><img src="/content/img/logo2.png" alt="Westcoast Education"></a>
       <ul class="nav-links">
         <li class="nav-item"><a href="courses.html">Våra utbildningar</a></li>
-        <li class="nav-item"><a href="#">Jobb</a></li>
         <li class="nav-item"><a href="#">Om oss</a></li>
-        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+        <li><a href="cart.html"><i class="fas fa-shopping-cart"><span id="cartCounter">0</span></i></a></li>
         <li><a href="#"><button id="loginButton">Logga in</button></a></li>
+        <li><a href="#"><button id="adminButton">Lägg till kurs</button></a></li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
