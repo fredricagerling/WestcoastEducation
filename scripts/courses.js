@@ -55,12 +55,12 @@ function createEvent(index, course) {
         'beforeend',
 
         `<div class="modal-content">
-      <div class="modal-header">
-      <h3 class="modal-title">${course.title}</h3><span class="close close-description">&times;</span>
-      </div>
-      <div class="course-details"><h3>Kursbeskrivning:</h3><span>${course.description}</span>
-      </div>
-      </div>`);
+          <div class="modal-header">
+          <h3 class="modal-title">${course.title}</h3><span class="close close-description">&times;</span>
+          </div>
+          <div class="course-details"><h3>Kursbeskrivning:</h3><span>${course.description}</span>
+          </div>
+        </div>`);
     }
 
     const closeDetailsButton = document.querySelector('.close-description');
@@ -93,7 +93,11 @@ function displayCourse(course) {
         <h3>${course.title}</h3>
         <h4>Kategori: ${course.courseType}</h4>
         <h4>Skapare: ${course.teacher}</h4>
-        <div class="course-info-second"><span>Mar 15, 2021</span><span class="separator"> &#9679; </span><span>Betyg: ${course.score}</span></div>
+        <div class="course-info-second"><span>${course.date}</span>
+        <span class="separator"> &#9679; </span>
+        <span>Betyg: ${course.score}</span>
+        <span class="separator"> &#9679; </span>
+        <span>${course.length} timmar</span></div>
       </div>
     </div>`);
 }

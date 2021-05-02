@@ -9,7 +9,8 @@
       "length": 62,
       "score": 4.5,
       "price": 299,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet.",
+      "date": "2021-07-08"
     },
     {
       "id": 2,
@@ -20,7 +21,8 @@
       "length": 54,
       "score": 4.9,
       "price": 699,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet.",
+      "date": "2019-06-07"
     },
     {
       "id": 3,
@@ -31,7 +33,8 @@
       "length": 33,
       "score": 3.8,
       "price": 999,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet.",
+      "date": "2020-03-16"
     },
     {
       "id": 4,
@@ -42,7 +45,8 @@
       "length": 5,
       "score": 2.5,
       "price": 199,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet.",
+      "date": "2019-08-12"
     },
     {
       "id": 5,
@@ -53,7 +57,8 @@
       "length": 2,
       "score": 4.2,
       "price": 99,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet.",
+      "date": "2017-11-01"
     },
     {
       "id": 6,
@@ -64,7 +69,8 @@
       "length": 32,
       "score": 4,
       "price": 599,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet.",
+      "date": "2021-03-02"
     },
     {
       "id": 7,
@@ -75,7 +81,8 @@
       "length": 15,
       "score": 5,
       "price": 1299,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet.",
+      "date": "2019-10-02"
     },
     {
       "id": 8,
@@ -86,7 +93,8 @@
       "length": 12,
       "score": 4.2,
       "price": 399,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet.",
+      "date": "2020-12-02"
     },
     {
       "id": 9,
@@ -97,31 +105,34 @@
       "length": 21,
       "score": 2.9,
       "price": 599,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet.",
+      "date": "2021-01-02"
     },
     {
-      "title": "titel",
-      "courseNumber": 23,
-      "teacher": "test",
-      "length": 23,
+      "title": "React - Från nybörjare till en legend",
+      "courseNumber": 12001,
+      "teacher": "Knugen Bengtsson",
+      "courseType": "Programmering",
+      "length": 75,
       "score": 0,
-      "price": 2323,
-      "description": "test",
+      "price": 2100,
+      "description": "Den här kursen är den enda kursen du någonsin behöver för att landa ditt nästa drömjobb.",
+      "date": "2021-05-02",
       "id": 10
     }
   ],
   "courseTypes": [
     {
-      "id": 1,
-      "type": "Programmering"
+      "type": "Programmering",
+      "id": 1
     },
     {
-      "id": 2,
-      "type": "Agil"
+      "type": "Agil",
+      "id": 2
     },
     {
-      "id": 3,
-      "type": "Ledarskap"
+      "type": "Ledarskap",
+      "id": 3
     }
   ]
 }

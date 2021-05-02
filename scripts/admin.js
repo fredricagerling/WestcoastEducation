@@ -73,11 +73,12 @@ function Course(course) {
   this.title = course.title,
   this.courseNumber = parseInt(course.courseNumber),
   this.teacher = course.teacher,
-  this.category = course.category,
+  this.courseType = course.category,
   this.length = parseInt(course.length),
   this.score = 0,
   this.price = parseInt(course.price),
-  this.description = course.description
+  this.description = course.description,
+  this.date = new Date().toISOString().slice(0, 10)
 }
 
 loadCourseTypes().then(data => populateComboBox(data)).catch(err => console.log(err));

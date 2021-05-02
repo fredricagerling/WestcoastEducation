@@ -199,7 +199,6 @@ main{
   height: 300px;
   display: flex;
   max-width: 1200px;
-  /* padding: 1rem; */
   flex-shrink: 0;
 }
 

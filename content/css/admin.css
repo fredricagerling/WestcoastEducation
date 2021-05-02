@@ -81,18 +81,6 @@ form label{
   align-items: center;
 }
 
-#adminButton{
-  display:none;
-  background-color: transparent;
-  border: 1px solid var(--light-color);
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  border-radius: 6px;
-  color: var(--light-color);
-  cursor: pointer;
-  font-size: 1rem;
-  outline: none !important;
-}
-
 #addCourse{
   width:100% !important;
 }
