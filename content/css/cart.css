@@ -23,11 +23,13 @@
   flex-direction: column;
   width: 100%;
 }
+
 .cart-item-description{
   display:flex;
   flex-direction: column;
   flex-grow: 1;
 }
+
 .coursePrice{
   margin: 0 0.5rem;
 }
