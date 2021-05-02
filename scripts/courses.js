@@ -5,6 +5,7 @@ const courses = document.querySelector('#coursesContainer');
 const displayAmountOfCourses = document.querySelector('#info-text');
 const allCoursesButton = document.querySelector('#showAllCourses');
 const bestSellersButton = document.querySelector('#bestSellers');
+const courseInfo = document.querySelector('#courseInfo');
 
 let selectedCategory = 'Visa alla';
 
@@ -39,13 +40,41 @@ function createCourseContainer(courseList) {
   for (let i = 0; i < courseList.length; i++) {
     displayCourse(courseList[i]);
     createPurchaseButton(i, courseList[i]);
+    createEvent(i, courseList[i]);
   }
+}
+
+function createEvent(index, course) {
+  const test = document.getElementsByClassName('course')[index];
+
+  test.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('add-to-cart')) {
+      courseInfo.innerHTML = '';
+      courseInfo.style.display = "flex";
+      courseInfo.insertAdjacentHTML(
+        'beforeend',
+
+        `<div class="modal-content">
+      <div class="modal-header">
+      <h3 class="modal-title">${course.title}</h3><span class="close close-description">&times;</span>
+      </div>
+      <div class="course-details"><h3>Kursbeskrivning:</h3><span>${course.description}</span>
+      </div>
+      </div>`);
+    }
+
+    const closeDetailsButton = document.querySelector('.close-description');
+    closeDetailsButton.addEventListener('click', () => {
+      courseInfo.style.display = 'none';
+    });
+  });
 }
 
 function createPurchaseButton(index, course) {
   const button = document.createElement('button');
-  button.textContent = 'Lägg i kundkorg';
+  button.textContent = 'Köp';
   button.classList.add('add-to-cart');
+  button.classList.add('btn');
   button.addEventListener('click', () => {
 
     addCourseToCart(course);
@@ -60,12 +89,13 @@ function displayCourse(course) {
     'beforeend',
 
     `<div class="course">
+        <div class="course-info">
         <h3>${course.title}</h3>
         <h4>Kategori: ${course.courseType}</h4>
-        <h4>Lärare: ${course.teacher}</h4>
-        <h4>Betyg: ${course.score}</h4>
-        <p>${course.description}</p>
-      </div>`);
+        <h4>Skapare: ${course.teacher}</h4>
+        <div class="course-info-second"><span>Mar 15, 2021</span><span class="separator"> &#9679; </span><span>Betyg: ${course.score}</span></div>
+      </div>
+    </div>`);
 }
 
 function updateTextParagraph(count) {

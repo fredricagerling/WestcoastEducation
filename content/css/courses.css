@@ -24,21 +24,23 @@
 }
 
 .add-to-cart{
-  width:10rem;
-  font-size: 1rem;
+  width:5rem;
   padding:0.4rem;
-  border-radius: 6px;
-  border:none;
   cursor: pointer;
-  align-self: flex-end;
+  align-self: flex-start;
   outline: none;
+  display:flex;
+  justify-content: center;
+}
+
+.separator{
+  font-size: 1rem;
 }
 
 #coursesContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-
   justify-content: center;
 }
 
@@ -50,12 +52,31 @@
 }
 
 .course {
-  background-color: var(--secondary-color);
+  border: 1px solid rgb(202, 202, 202);
   height: auto;
-  width: 350px;
+  width: 500px;
   border-radius: 4px;
   padding: 1rem;
-  color: var(--light-color);
+  display:flex;
+  justify-content: space-between;
+}
+
+.course:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.course h3{
+ max-width: 23rem;
+}
+
+.course h3{
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+}
+
+.course-info-second{
+padding-top:0.3rem;
 }
 
 #info-text {

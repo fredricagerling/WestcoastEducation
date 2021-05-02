@@ -11,15 +11,11 @@ closeButton.addEventListener('click', () => {
   confirmationMessage.style.display = "none";
 })
 
-confirmationMessage.addEventListener('click', () => {
-  confirmationMessage.style.display = "none";
-})
-
 function addCourseToCart(course) {
   if (cartArray.some(e => e.id === course.id)) {
     return;
   }
-  
+
   cartArray.push(course)
   sessionCart.setItem(`cartItems`, JSON.stringify(cartArray));
   updateCartCounter();
@@ -35,9 +31,7 @@ function checkSessionStorage() {
   const sessionStorageCart = JSON.parse(sessionCart.getItem('cartItems'));
 
   if (sessionStorageCart != null) {
-    console.log(sessionStorageCart)
     cartArray = [...sessionStorageCart];
-    console.log(cartArray);
   }
 }
 

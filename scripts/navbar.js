@@ -38,7 +38,6 @@ function updateCartCounter() {
   const itemsInCart = JSON.parse(window.sessionStorage.getItem('cartItems'));
   if (itemsInCart != null) {
     shoppingCart.textContent = itemsInCart.length;
-    console.log(itemsInCart.length);
   }
 }
 
