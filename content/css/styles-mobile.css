@@ -28,6 +28,10 @@
     display: block;
     cursor: pointer;
   }
+
+  #cartCounter{
+    display:none;
+  }
 }
 
 @keyframes navLinkFade {
