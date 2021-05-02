@@ -38,8 +38,10 @@
   background-color:red;
   border: none;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 800;
   color:white;
+  cursor: pointer;
 }
 
 .landing-text {
@@ -126,6 +128,12 @@
 
 .hidden{
   display: none !important;
+}
+
+#purchaseMessage{
+  background-color: #fff;
+  padding:1rem;
+  width:500px !important;
 }
 
 @media screen and (max-width: 768px) {

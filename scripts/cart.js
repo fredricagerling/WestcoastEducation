@@ -6,8 +6,21 @@ const courseContainer = document.getElementById('courseContainer');
 const purchaseButton = document.getElementById('commitPurchase');
 const printTotalPrice = document.getElementById('totalPrice');
 const myStorage = window.sessionStorage;
+const modal = document.getElementById("purchaseConfirmed");
+const closeButton = document.querySelector(".close");
+const cartItem = document.querySelector('.cart-item-description');
 
 purchaseButton.addEventListener('click', confirmPurchase);
+
+closeButton.addEventListener('click', () => {
+  modal.style.display = "none";
+  location.reload();
+})
+
+modal.addEventListener('click', () => {
+  modal.style.display = "none";
+  location.reload();
+})
 
 let calculateTotal = 0;
 let cartArray = [];
@@ -68,7 +81,7 @@ function unsetEmptyCart() {
 
 function confirmPurchase() {
   myStorage.clear();
-  location.reload();
+  modal.style.display = 'flex';
 }
 
 populateCart();

@@ -5,7 +5,6 @@
 }
 
 input{
-  height:2rem;
   width:100%;
   border:none;
   outline: none;
@@ -14,26 +13,52 @@ input{
 form{
   display:flex;
   flex-direction: column;
-  gap:3rem;
+  gap:1rem;
 }
 
 .input-window{
   border-radius: 6px;
   background-color: white;
   border: 1px solid rgb(202, 202, 202);
-  height:4rem;
-  padding:0.5rem;
+  height:3.5rem;
+  padding:0.4rem;
+}
+.description{
+  height:7rem;
 }
 
-form span{
+textarea{
+  resize: none;
+  border: none;
+  width: 100%;
+  outline: none;
+  height: 5rem;
+}
+
+.form-container{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+#titleWindow{
+  flex-grow: 2 !important;
+}
+
+#categoryWindow{
+  flex-grow: 1 !important;
+  min-width: 6rem;
+}
+#categories{
+  border: none;
+}
+form label{
   font-size: 0.8rem;
   color: gray;
 }
-#finalRow{
-  display:flex;
-  justify-content: space-between;
-}
-#container{
+
+.container{
   max-width: 900px;
   padding:1rem;
   margin-left: auto;
@@ -44,8 +69,9 @@ form span{
   flex-direction: column;
 }
 
-#addCourse{
+.admin-buttons{
   width:20rem;
+  height: 4rem;
   border-radius: 6px;
   outline: none;
   border: 1px solid rgb(202, 202, 202);
@@ -67,8 +93,45 @@ form span{
   outline: none !important;
 }
 
+#addCourse{
+  width:100% !important;
+}
+
 .active{
   background-color: var(--hover-button) !important;
   border-color: var(--hover-button) !important;
   color: var(--dark-color) !important;
+}
+
+#adminActions{
+  height:25rem;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.small-window{
+  width: 46%;
+}
+
+@media screen and (max-width: 480px) {
+  
+  .admin-buttons{
+    width:15rem;
+  }
+
+  #modalTitle{
+    font-size: 1.4rem !important;
+  }
+
+  h1{
+    font-size: 2.2rem;
+  }
+
+  form, .form-container{
+    gap:0.5rem;
+  }
+  
 }

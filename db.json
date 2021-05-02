@@ -6,6 +6,7 @@
       "title": "C# Nybörjare",
       "teacher": "Bob Ross",
       "courseType": "Programmering",
+      "length": 62,
       "score": 4.5,
       "price": 299,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
@@ -16,6 +17,7 @@
       "title": "C# Avancerad",
       "teacher": "Bob Ross",
       "courseType": "Programmering",
+      "length": 54,
       "score": 4.9,
       "price": 699,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
@@ -26,6 +28,7 @@
       "title": "JavaScript 101",
       "teacher": "Berit Larsson",
       "courseType": "Programmering",
+      "length": 33,
       "score": 3.8,
       "price": 999,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
@@ -36,6 +39,7 @@
       "title": "Scrum for dummies",
       "teacher": "Benny Tjabo",
       "courseType": "Agil",
+      "length": 5,
       "score": 2.5,
       "price": 199,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
@@ -46,6 +50,7 @@
       "title": "Det agila manifestot",
       "teacher": "Benny Tjabo",
       "courseType": "Agil",
+      "length": 2,
       "score": 4.2,
       "price": 99,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
@@ -56,7 +61,8 @@
       "title": "Projektledning 101",
       "teacher": "Josef Sung",
       "courseType": "Ledarskap",
-      "score": 4.0,
+      "length": 32,
+      "score": 4,
       "price": 599,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
     },
@@ -66,6 +72,7 @@
       "title": "Java for dummies",
       "teacher": "Agneta Javasson",
       "courseType": "Programmering",
+      "length": 15,
       "score": 5,
       "price": 1299,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
@@ -76,6 +83,7 @@
       "title": "Gör spel med C++",
       "teacher": "Masahiro Sakurai",
       "courseType": "Programmering",
+      "length": 12,
       "score": 4.2,
       "price": 399,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
@@ -86,12 +94,22 @@
       "title": "Webbutveckling med C#",
       "teacher": "Bonito Fling",
       "courseType": "Programmering",
+      "length": 21,
       "score": 2.9,
       "price": 599,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum mauris arcu. Fusce blandit ut magna ac congue. Cras imperdiet."
+    },
+    {
+      "title": "titel",
+      "courseNumber": 23,
+      "teacher": "test",
+      "length": 23,
+      "score": 0,
+      "price": 2323,
+      "description": "test",
+      "id": 10
     }
   ],
-  
   "courseTypes": [
     {
       "id": 1,

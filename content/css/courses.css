@@ -88,8 +88,35 @@
   flex-wrap: wrap;
 }
 
+#cartItem{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:1rem;
+  flex-wrap: wrap;
+}
+
+#cartItem .fas{
+  color:green;
+  font-size: 2rem;
+}
+
+.cart-item-description{
+  width: 18rem;
+}
+
+#ToCartButton{
+  justify-content: center;
+  width: 9rem;
+  padding:0.8rem 0;
+}
+
 @media screen and (max-width: 768px) {
   .course{
+    width: 100%;
+  }
+
+  #ToCartButton{
     width: 100%;
   }
 }

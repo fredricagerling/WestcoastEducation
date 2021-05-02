@@ -1,21 +1,38 @@
+'use strict';
+
 const baseUrl = 'http://localhost:3000/courses';
-const datStorage = window.sessionStorage;
+const sessionCart = window.sessionStorage;
 const courses = document.querySelector('#coursesContainer');
 const displayAmountOfCourses = document.querySelector('#info-text');
-const allCoursesButton = document.querySelector('#showAllCourses').addEventListener('click', () => {
-  loadCoarses().then(data => createCourseContainer(data)).catch(err => console.log(err));
+const allCoursesButton = document.querySelector('#showAllCourses');
+const bestSellersButton = document.querySelector('#bestSellers');
+const confirmationMessage = document.querySelector("#confirmation");
+const closeButton = document.querySelector(".close");
+const cartItem = document.querySelector('.cart-item-description');
 
-  selectedCategory = 'Visa alla';
-});
+let cartArray = [];
+let selectedCategory = 'Visa alla';
 
-const bestSellersButton = document.querySelector('#bestSellers').addEventListener('click', () => {
+bestSellersButton.addEventListener('click', () => {
   bestsellerCourses().then(data => createCourseContainer(data)).catch(err => console.log(err));
 
   selectedCategory = 'Bästsäljare';
 });
 
-let leCart = []; //Byt namn för fan
-let selectedCategory = 'Visa alla';
+allCoursesButton.addEventListener('click', () => {
+  loadCoarses().then(data => createCourseContainer(data)).catch(err => console.log(err));
+
+  selectedCategory = 'Visa alla';
+});
+
+
+closeButton.addEventListener('click', () => {
+  confirmationMessage.style.display = "none";
+})
+
+confirmationMessage.addEventListener('click', () => {
+  confirmationMessage.style.display = "none";
+})
 
 async function loadCoarses() {
   const url = `${baseUrl}`;
@@ -42,18 +59,31 @@ function createPurchaseButton(index, course) {
   const button = document.createElement('button');
   button.textContent = 'Lägg i kundkorg';
   button.classList.add('add-to-cart');
-  
   button.addEventListener('click', () => {
 
-    if (!leCart.some(e => e.id === course.id)) {
-      leCart.push(course)
-      datStorage.setItem(`cartItems`, JSON.stringify(leCart));
-      updateCartCounter();
-    }
+    addCourseToCart(course);
   });
+
   const courseContainer = document.getElementsByClassName('course')[index];
   courseContainer.appendChild(button);
 }
+
+function addCourseToCart(course) {
+  if (cartArray.some(e => e.id === course.id)) {
+    return;
+  }
+  
+  cartArray.push(course)
+  sessionCart.setItem(`cartItems`, JSON.stringify(cartArray));
+  updateCartCounter();
+  confirmationMessage.style.display = "flex";
+
+  cartItem.innerHTML =
+    ` <p>${course.title}</p>
+          <span>av ${course.teacher}</span>
+        </div>`;
+}
+
 
 function displayCourse(course) {
   courses.insertAdjacentHTML(
@@ -105,14 +135,13 @@ async function filterCourses(course) {
   return response.json();
 }
 
-function checkSessionStorage(){
-  const sessionStorageCart = JSON.parse(datStorage.getItem('cartItems'));
+function checkSessionStorage() {
+  const sessionStorageCart = JSON.parse(sessionCart.getItem('cartItems'));
 
-  if(sessionStorageCart != null)
-  {
+  if (sessionStorageCart != null) {
     console.log(sessionStorageCart)
-    leCart = [...sessionStorageCart];
-    console.log(leCart);
+    cartArray = [...sessionStorageCart];
+    console.log(cartArray);
   }
 }
 

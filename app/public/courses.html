@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="se">
 
 <head>
   <meta charset="UTF-8">
@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/content/css/courses.css">
   <link rel="stylesheet" href="/content/css/styles-mobile.css">
   <link rel="stylesheet" href="/content/css/admin.css">
+  <link rel="stylesheet" href="/content/css/modal.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
@@ -31,7 +32,7 @@
         <li class="nav-item"><a href="#">Om oss</a></li>
         <li><a href="cart.html"><i class="fas fa-shopping-cart"><span id="cartCounter">0</span></i></a></li>
         <li><a href="#"><button id="loginButton">Logga in</button></a></li>
-        <li><a href="#"><button id="adminButton">Lägg till kurs</button></a></li>
+        <li><a href="../admin/admin.html"><button id="adminButton">Admin</button></a></li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -95,6 +96,17 @@
       <span>© Westcoast Education AB. En del av Academedia. Alla rättigheter reserverade.</span>
     </div>
   </footer>
+  <div id="confirmation" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Tillagd i kundkorgen</h3><span class="close">&times;</span>
+      </div>
+      <div id="cartItem">
+        <i class="fas fa-check-circle"></i>
+        <div class="cart-item-description"></div>
+        <a href="cart.html"><button id="ToCartButton" class="btn">Till kundkorgen</button></a>
+      </div>
+    </div>
 </body>
 
 </html>
