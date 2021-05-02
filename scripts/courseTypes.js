@@ -1,3 +1,5 @@
+'use strict';
+
 const categories = document.querySelector('#courseCategories');
 
 async function loadCourseTypes() {
@@ -29,6 +31,5 @@ function displayFilterButton(courseType) {
         selectedCategory = courseType;
     });
 }
-
 
 loadCourseTypes().then(data => createFilterButton(data)).catch(err => console.log(err));

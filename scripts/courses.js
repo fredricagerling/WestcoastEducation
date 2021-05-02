@@ -1,16 +1,11 @@
 'use strict';
 
 const baseUrl = 'http://localhost:3000/courses';
-const sessionCart = window.sessionStorage;
 const courses = document.querySelector('#coursesContainer');
 const displayAmountOfCourses = document.querySelector('#info-text');
 const allCoursesButton = document.querySelector('#showAllCourses');
 const bestSellersButton = document.querySelector('#bestSellers');
-const confirmationMessage = document.querySelector("#confirmation");
-const closeButton = document.querySelector(".close");
-const cartItem = document.querySelector('.cart-item-description');
 
-let cartArray = [];
 let selectedCategory = 'Visa alla';
 
 bestSellersButton.addEventListener('click', () => {
@@ -25,14 +20,6 @@ allCoursesButton.addEventListener('click', () => {
   selectedCategory = 'Visa alla';
 });
 
-
-closeButton.addEventListener('click', () => {
-  confirmationMessage.style.display = "none";
-})
-
-confirmationMessage.addEventListener('click', () => {
-  confirmationMessage.style.display = "none";
-})
 
 async function loadCoarses() {
   const url = `${baseUrl}`;
@@ -67,23 +54,6 @@ function createPurchaseButton(index, course) {
   const courseContainer = document.getElementsByClassName('course')[index];
   courseContainer.appendChild(button);
 }
-
-function addCourseToCart(course) {
-  if (cartArray.some(e => e.id === course.id)) {
-    return;
-  }
-  
-  cartArray.push(course)
-  sessionCart.setItem(`cartItems`, JSON.stringify(cartArray));
-  updateCartCounter();
-  confirmationMessage.style.display = "flex";
-
-  cartItem.innerHTML =
-    ` <p>${course.title}</p>
-          <span>av ${course.teacher}</span>
-        </div>`;
-}
-
 
 function displayCourse(course) {
   courses.insertAdjacentHTML(
@@ -135,15 +105,4 @@ async function filterCourses(course) {
   return response.json();
 }
 
-function checkSessionStorage() {
-  const sessionStorageCart = JSON.parse(sessionCart.getItem('cartItems'));
-
-  if (sessionStorageCart != null) {
-    console.log(sessionStorageCart)
-    cartArray = [...sessionStorageCart];
-    console.log(cartArray);
-  }
-}
-
 loadCoarses().then(data => createCourseContainer(data)).catch(err => console.log(err));
-checkSessionStorage();

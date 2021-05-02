@@ -1,9 +1,9 @@
 'use strict';
+
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
 const shoppingCart = document.getElementById('cartCounter');
-
 
 function navSlide() {
   burger.addEventListener('click', () => {
@@ -41,6 +41,6 @@ function updateCartCounter() {
     console.log(itemsInCart.length);
   }
 }
-navSlide();
 
+navSlide();
 updateCartCounter();

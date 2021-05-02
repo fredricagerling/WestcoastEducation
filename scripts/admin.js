@@ -1,3 +1,5 @@
+'use strict';
+
 const baseUrl = 'http://localhost:3000/';
 const addNewCourseButton = document.querySelector('#addNewCourse');
 const addCourses = document.querySelector('#addCourseModal');
@@ -68,14 +70,14 @@ async function postToDatabase(newCourse) {
 }
 
 function Course(course) {
-    this.title = course.title,
-    this.courseNumber = parseInt(course.courseNumber),
-    this.teacher = course.teacher,
-    this.category = course.category,
-    this.length = parseInt(course.length),
-    this.score = 0,
-    this.price = parseInt(course.price),
-    this.description = course.description
+  this.title = course.title,
+  this.courseNumber = parseInt(course.courseNumber),
+  this.teacher = course.teacher,
+  this.category = course.category,
+  this.length = parseInt(course.length),
+  this.score = 0,
+  this.price = parseInt(course.price),
+  this.description = course.description
 }
 
 loadCourseTypes().then(data => populateComboBox(data)).catch(err => console.log(err));
