@@ -20,7 +20,7 @@ async function loadCourseTypes() {
   return response.json();
 }
 
-function populateComboBox(courseTypes) {
+function populateDropDownBox(courseTypes) {
   options.innerHTML = '';
   options.insertAdjacentHTML('beforeend',
     `<option hidden disabled selected value>- Välj kategori -</option>`);
@@ -81,4 +81,4 @@ function Course(course) {
   this.date = new Date().toISOString().slice(0, 10)
 }
 
-loadCourseTypes().then(data => populateComboBox(data)).catch(err => console.log(err));
+loadCourseTypes().then(data => populateDropDownBox(data)).catch(err => console.log(err));
