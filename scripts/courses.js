@@ -45,9 +45,8 @@ function createCourseContainer(courseList) {
 }
 
 function createEvent(index, course) {
-  const test = document.getElementsByClassName('course')[index];
-
-  test.addEventListener('click', (e) => {
+  const courseBox = document.getElementsByClassName('course')[index];
+  courseBox.addEventListener('click', (e) => {
     if (!e.target.classList.contains('add-to-cart')) {
       courseInfo.innerHTML = '';
       courseInfo.style.display = "flex";
@@ -61,12 +60,13 @@ function createEvent(index, course) {
           <div class="course-details"><h3>Kursbeskrivning:</h3><span>${course.description}</span>
           </div>
         </div>`);
-    }
 
-    const closeDetailsButton = document.querySelector('.close-description');
-    closeDetailsButton.addEventListener('click', () => {
-      courseInfo.style.display = 'none';
-    });
+      const closeDetailsButton = document.querySelector('.close-description');
+      closeDetailsButton.addEventListener('click', () => {
+        courseInfo.style.display = 'none';
+
+      });
+    }
   });
 }
 

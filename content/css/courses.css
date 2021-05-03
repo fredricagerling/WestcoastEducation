@@ -112,15 +112,13 @@ padding-top:0.3rem;
   align-items: center;
   display:flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 #cartItem{
   display:flex;
   align-items: center;
   gap:1rem;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
 }
 
 #cartRow .fas{
@@ -140,6 +138,10 @@ padding-top:0.3rem;
     width: 100%;
   }
   #cartItem{
+    width: 100%;
+    margin:1rem;
+  }
+  #cartRow{
     flex-direction: column;
   }
 }
