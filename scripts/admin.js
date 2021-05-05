@@ -47,7 +47,7 @@ async function submitForm(e) {
   e.preventDefault();
   const data = new FormData(e.target);
   const value = Object.fromEntries(data.entries());
-  
+
   const newCourse = new Course(value);
   postToDatabase(newCourse);
 }
@@ -69,16 +69,18 @@ async function postToDatabase(newCourse) {
   return response.json();
 }
 
-function Course(course) {
-  this.title = course.title,
-  this.courseNumber = parseInt(course.courseNumber),
-  this.teacher = course.teacher,
-  this.courseType = course.category,
-  this.length = parseInt(course.length),
-  this.score = 0,
-  this.price = parseInt(course.price),
-  this.description = course.description,
-  this.date = new Date().toISOString().slice(0, 10)
+class Course {
+  constructor(course) {
+    this.title = course.title;
+    this.courseNumber = parseInt(course.courseNumber);
+    this.teacher = course.teacher;
+    this.courseType = course.category;
+    this.length = parseInt(course.length);
+    this.score = 0;
+    this.price = parseInt(course.price);
+    this.description = course.description;
+    this.date = new Date().toISOString().slice(0, 10);
+  }
 }
 
 loadCourseTypes().then(data => populateDropDownBox(data)).catch(err => console.log(err));
