@@ -40,7 +40,7 @@ function populateCart() {
 function createCartItem(cartItem, index){
   courseContainer.insertAdjacentHTML(
     'beforeend',
-    `<div class="cart-item" id="item${cartItem.courseNumber}"}>
+    `<div class="cart-item" id="courseItem${cartItem.courseId}"}>
       <div class="cart-item-description">
         <p>${cartItem.title}</p>
         <p>av ${cartItem.teacher}</p>
@@ -62,7 +62,7 @@ function createDeleteButton(course, index) {
     location.reload();
   });
 
-  const cartItem = document.getElementById(`item${course.courseNumber}`);
+  const cartItem = document.getElementById(`courseItem${course.courseId}`);
   cartItem.appendChild(button);
 }
 

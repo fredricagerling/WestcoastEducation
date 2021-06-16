@@ -1,6 +1,6 @@
 'use strict';
 
-const baseUrl = 'http://localhost:3000/courses';
+const baseUrl = 'https://localhost:5503/api/courses';
 const courses = document.querySelector('#coursesContainer');
 const displayAmountOfCourses = document.querySelector('#info-text');
 const allCoursesButton = document.querySelector('#showAllCourses');
@@ -10,19 +10,19 @@ const courseInfo = document.querySelector('#courseInfo');
 let selectedCategory = 'Visa alla';
 
 bestSellersButton.addEventListener('click', () => {
-  bestsellerCourses().then(data => createCourseContainer(data)).catch(err => console.log(err));
+  bestsellerCourses().then(data => createStudentTable(data)).catch(err => console.log(err));
 
   selectedCategory = 'Bästsäljare';
 });
 
 allCoursesButton.addEventListener('click', () => {
-  loadCoarses().then(data => createCourseContainer(data)).catch(err => console.log(err));
+  loadStudents().then(data => createStudentTable(data)).catch(err => console.log(err));
 
   selectedCategory = 'Visa alla';
 });
 
 
-async function loadCoarses() {
+async function loadStudents() {
   const url = `${baseUrl}`;
   const response = await fetch(url);
 
@@ -33,7 +33,7 @@ async function loadCoarses() {
   return response.json();
 }
 
-function createCourseContainer(courseList) {
+function createStudentTable(courseList) {
   courses.innerHTML = '';
   updateTextParagraph(courseList.length)
 
@@ -76,8 +76,8 @@ function createPurchaseButton(index, course) {
   button.classList.add('add-to-cart');
   button.classList.add('btn');
   button.addEventListener('click', () => {
-
     addCourseToCart(course);
+
   });
 
   const courseContainer = document.getElementsByClassName('course')[index];
@@ -91,7 +91,7 @@ function displayCourse(course) {
     `<div class="course">
         <div class="course-info">
         <h3>${course.title}</h3>
-        <h4>Kategori: ${course.courseType}</h4>
+        <h4>Kategori: ${course.category}</h4>
         <h4>Skapare: ${course.teacher}</h4>
         <div class="course-info-second"><span>${course.date}</span>
         <span class="separator"> &#9679; </span>
@@ -139,4 +139,4 @@ async function filterCourses(course) {
   return response.json();
 }
 
-loadCoarses().then(data => createCourseContainer(data)).catch(err => console.log(err));
+loadStudents().then(data => createStudentTable(data)).catch(err => console.log(err));

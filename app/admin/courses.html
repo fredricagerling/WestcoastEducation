@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="se">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Westcoast Education</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/content/css/styles.css">
+  <link rel="stylesheet" href="/content/css/styles-mobile.css">
+  <link rel="stylesheet" href="/content/css/modal.css">
+  <link rel="stylesheet" href="/content/css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+  <script src="/scripts/fetchApi.js" defer></script>
+  <script src="/scripts/adminSelectTableRow.js" defer></script>
+  <script src="/scripts/viewModels.js" defer></script>
+  <script src="/scripts/adminCourses.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="../admin/admin.html"><i class="fas fa-arrow-left"><span> Tillbaka till sidan</span></i></a>
+    </nav>
+  </header>
+  <main>
+    <div id="container">
+      <div id="options">
+        <div id="optionsButtons">
+          <button id="addNewCourse" class="btn admin-buttons mini">Lägg till kurs</button>
+        </div>
+        <input type="text" name="search" id="search" placeholder="Sök...">
+      </div>
+      <table id="overviewTable">
+        <thead>
+          <tr>
+            <th></th>
+            <th>ID</th>
+            <th>Titel</th>
+            <th>Lärare</th>
+            <th>Studenter</th>
+            <th>Aktiv</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="editCourseModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalTitle">Redigera kurs</h3><span class="close">&times;</span>
+        </div>
+        <form id="editForm" onsubmit="return false;">
+          <div class="form-container">
+            <div id="titleWindow" class="input-window">
+              <label for="editTitle">Kursens titel</label>
+              <input type="text" id="editTitle" name="editTitle" required>
+            </div>
+            <div id="categoryWindow" class="input-window">
+              <label for="editActivity">Aktiv</label><br>
+              <select type="editActivity" id="editActivity" name="editActivity" required>
+                <option hidden disabled selected value>- Välj -</option>
+                <option value="true">Ja</option>
+                <option value="false">Nej</option>
+              </select>
+            </div>
+            <div id="courseLevelWindow" class="input-window">
+              <label for="editCourseLevel">Nivå</label><br>
+              <select type="editCourseLevel" id="editCourseLevel" name="editCourseLevel" required>
+                <option hidden disabled selected value>- Välj nivå -</option>
+                <option value="Nybörjare">Nybörjare</option>
+                <option value="Medel">Medel</option>
+                <option value="Avancerad">Avancerad</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-window description">
+            <label for="editDescription">Beskrivning av kursen</label>
+            <textarea name="editDescription" id="editDescription" placeholder="Beskrivning"></textarea>
+          </div>
+          <div class="form-container">
+            <div class="input-window small-window">
+              <label for="editScore">Ändra betyg (0-5)</label><br>
+              <input type="number" min="0" max="5" step="0.1" id="editScore" name="editScore" required></select>
+            </div>
+            <div class="input-window small-window">
+              <label for="editPrice">Pris(kr)</label>
+              <input type="number" id="editPrice" name="editPrice" placeholder="Pris" required>
+            </div>
+            <div class="input-window small-window">
+              <label for="editLength">Antal timmar</label>
+              <input type="number" id="editLength" name="editLength" placeholder="Längd(timmar)" required>
+            </div>
+            <div class="input-window small-window">
+              <label for="editCourseNumber">Kursnummer</label>
+              <input type="number" id="editCourseNumber" name="editCourseNumber" placeholder="Kursnummer" required>
+            </div>
+          </div>
+          <button type="click" id="editCourseBtn" class="btn admin-buttons">Spara ändringar</button>
+        </form>
+      </div>
+    </div>
+
+    
+    <div id="addCourseModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalTitle">Lägg till ny kurs</h3><span class="close">&times;</span>
+        </div>
+        <form id="addForm" onsubmit="return false;">
+          <div class="form-container">
+            <div id="titleWindow" class="input-window">
+              <label for="title">Kursens titel</label>
+              <input type="text" id="title" name="title" placeholder="Titel" required>
+            </div>
+            <div id="categoryWindow" class="input-window">
+              <label for="category">Kategori</label><br>
+              <select type="category" id="category" name="category" required></select>
+            </div>
+            <div id="courseLevelWindow" class="input-window">
+              <label for="courseLevel">Nivå</label><br>
+              <select type="courseLevel" id="courseLevel" name="courseLevel" required>
+                <option hidden disabled selected value>- Välj nivå -</option>
+                <option value="Nybörjare">Nybörjare</option>
+                <option value="Medel">Medel</option>
+                <option value="Avancerad">Avancerad</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-window description">
+            <label for="description">Beskrivning av kursen</label>
+            <textarea name="description" id="description" placeholder="Beskrivning"></textarea>
+          </div>
+          <div class="form-container">
+            <div class="input-window small-window">
+              <label for="teacher">Kursens lärare</label><br>
+              <select type="teacher" id="teacher" name="teacher" required></select>
+            </div>
+            <div class="input-window small-window">
+              <label for="price">Pris(kr)</label>
+              <input type="number" id="price" name="price" placeholder="Pris" required>
+            </div>
+            <div class="input-window small-window">
+              <label for="length">Antal timmar</label>
+              <input type="number" id="length" name="length" placeholder="Längd(timmar)" required>
+            </div>
+            <div class="input-window small-window">
+              <label for="courseNumber">Kursnummer</label>
+              <input type="number" id="courseNumber" name="courseNumber" placeholder="Kursnummer" required>
+            </div>
+          </div>
+          <button type="click" id="addCourseBtn" class="btn admin-buttons">Lägg till kurs</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

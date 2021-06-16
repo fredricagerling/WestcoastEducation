@@ -14,6 +14,7 @@
   --navbar-height: 5rem;
   --primary-button: #a8e883;
   --hover-button: #91d26c;
+  --hover-table: #a8e8837e;
 }
 
 a{
@@ -45,6 +46,8 @@ h1 {
 h2 {
   font-size: 2rem;
 }
+
+
 
 /* Navbar */
 
@@ -187,6 +190,17 @@ nav {
   color: var(--dark-color);
   opacity: 0.5;
   cursor: default;
+}
+
+.btn-secondary:disabled {
+  background-color: var(--light-color);
+  cursor: default;
+  border-color: var(--light-color);
+  color:gray;
+}
+
+.btn-secondary:hover:disabled{
+  background-color: var(--light-color);
 }
 
 main{

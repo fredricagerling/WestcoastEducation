@@ -43,10 +43,16 @@ textarea{
 }
 
 #titleWindow{
-  flex-grow: 2 !important;
+  flex-grow: 5 !important;
 }
 
 #categoryWindow{
+  flex-grow: 1 !important;
+  /* min-width: 4rem; */
+}
+
+#courseLevelWindow
+{
   flex-grow: 1 !important;
   min-width: 6rem;
 }
@@ -81,7 +87,13 @@ form label{
   align-items: center;
 }
 
-#addCourse{
+.mini{
+  width: 10rem;
+  height: 2.2rem;
+  text-transform:none;
+}
+
+.submit-form{
   width:100% !important;
 }
 
@@ -100,8 +112,81 @@ form label{
   justify-content: space-around;
 }
 
+.admin-action-row{
+  display:flex;
+  gap:1rem;
+}
+
 .small-window{
   width: 46%;
+}
+
+.address{
+  width:30%;
+}
+
+#overviewTable{
+  width: 100%;
+  border-radius: 10px;
+  border-collapse:collapse;
+  box-shadow: 0px 0px 10px rgb(175, 175, 175);
+  margin-top: 1rem;
+  overflow:hidden
+}
+
+th{
+  background-color: var(--primary-button);
+  font-weight: 600;
+  text-align: left;
+  height: 3rem;
+}
+
+td{
+  height: 2rem;
+}
+td:first-child{
+  padding-left: 1rem;
+}
+#container{
+  max-width: 60rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#options{
+  margin-top: 1rem;
+  display:flex;
+}
+
+#search{
+  height:2.2rem;
+  border-radius: 4px;
+  border: 1px solid rgb(202, 202, 202);
+  padding: 0.5rem;
+  width: 15rem;
+  margin-left: auto;
+
+}
+
+#optionsButtons{
+  display:inherit;
+  gap: 1rem;
+}
+
+.selected{
+  background-color: var(--hover-table);
+}
+
+.fa-edit:hover{
+cursor: pointer;
+}
+
+#courseContainer{
+  width: 100%;
+  padding:0.2rem;
+  outline: none !important;
+  border: 1px solid rgb(202, 202, 202);
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 480px) {
@@ -110,7 +195,7 @@ form label{
     width:15rem;
   }
 
-  #modalTitle{
+  .modal-title{
     font-size: 1.4rem !important;
   }
 

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="se">
 
 <head>
@@ -16,7 +17,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
-  <script src="/scripts/admin.js" defer></script>
 </head>
 
 <body>
@@ -28,53 +28,17 @@
   <main>
     <div id="adminActions">
       <h1>Administration</h1>
-      <button id="addNewCourse" class="btn admin-buttons">Lägg till kurs</button>
-      <button id="editCourse" class="btn admin-buttons">Redigera kurs</button>
+      <div class="admin-action-row">
+        <a href="courses.html"><button id="editCourse" class="btn admin-buttons">Kursöversikt</button></a>
+      </div>
+      <div class="admin-action-row">
+        <a href="students.html"><button id="editStudent" class="btn admin-buttons">Studentöversikt</button></a>
+      </div>
+
       <button id="addNewCategory" class="btn admin-buttons">Lägg till nya kategorier</button>
     </div>
 
-    <div id="addCourseModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 id="modalTitle">Lägg till ny kurs</h3><span class="close">&times;</span>
-        </div>
-        <form>
-          <div class="form-container">
-            <div id="titleWindow" class="input-window">
-              <label for="title">Kursens titel</label>
-              <input type="text" id="title" name="title" placeholder="Titel" required>
-            </div>
-            <div id="categoryWindow" class="input-window">
-              <label for="category">Kategori</label><br>
-              <select type="category" id="category" name="category" required></select>
-            </div>
-          </div>
-          <div class="input-window description">
-            <label for="description">Beskrivning av kursen</label>
-            <textarea name="description" id="description" placeholder="Beskrivning"></textarea>
-          </div>
-          <div class="form-container">
-            <div class="input-window small-window">
-              <label for="teacher">Kursens lärare</label>
-              <input type="text" id="teacher" name="teacher" placeholder="Lärare" required>
-            </div>
-            <div class="input-window small-window">
-              <label for="price">Pris(kr)</label>
-              <input type="number" id="price" name="price" placeholder="Pris" required>
-            </div>
-            <div class="input-window small-window">
-              <label for="length">Antal timmar</label>
-              <input type="number" id="length" name="length" placeholder="Längd(timmar)" required>
-            </div>
-            <div class="input-window small-window">
-              <label for="courseNumber">Kursnummer</label>
-              <input type="number" id="courseNumber" name="courseNumber" placeholder="Kursnummer" required>
-            </div>
-          </div>
-          <button type="submit" id="addCourse" class="btn admin-buttons">Lägg till kurs</button>
-        </form>
-      </div>
-    </div>
   </main>
 </body>
+
 </html>

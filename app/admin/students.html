@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="se">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Westcoast Education</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/content/css/styles.css">
+  <link rel="stylesheet" href="/content/css/styles-mobile.css">
+  <link rel="stylesheet" href="/content/css/modal.css">
+  <link rel="stylesheet" href="/content/css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+  <script src="/scripts/fetchApi.js" defer></script>
+  <script src="/scripts/adminSelectTableRow.js" defer></script>
+  <script src="/scripts/viewModels.js" defer></script>
+  <script src="/scripts/adminStudents.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="../admin/admin.html"><i class="fas fa-arrow-left"><span> Tillbaka till sidan</span></i></a>
+    </nav>
+  </header>
+  <main>
+    <div id="container">
+      <div id="options">
+        <div id="optionsButtons">
+          <button id="addNewStudent" class="btn admin-buttons mini">Lägg till student</button>
+          <button id="assignCourse" class="btn-secondary admin-buttons mini" disabled>Tilldela kurs</button>
+        </div>
+        <input type="text" name="search" id="search" placeholder="Sök...">
+      </div>
+      <table id="overviewTable">
+        <thead>
+          <tr>
+            <th></th>
+            <th>ID</th>
+            <th>Namn</th>
+            <th>Email</th>
+            <th>Mobil</th>
+            <th>Kurser</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="studentModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalTitle" class="modal-title">Redigera student</h3><span class="close">&times;</span>
+        </div>
+        <form id="addForm" onsubmit="return false;">
+          <div class="form-container">
+            <div class="input-window small-window">
+              <label for="firstName">Förnamn</label><br>
+              <input type="text" id="firstName" name="firstName" required placeholder="Förnamn">
+            </div>
+            <div class="input-window small-window">
+              <label for="lastName">Efternamn</label><br>
+              <input type="text" id="lastName" name="lastName" required placeholder="Efternamn">
+            </div>
+            <div class="input-window small-window">
+              <label for="phone">Mobil</label><br>
+              <input type="text" id="phone" name="phone" required placeholder="Mobil">
+            </div>
+            <div class="input-window small-window">
+              <label for="courseNumber">Email</label>
+              <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-window small-window address">
+              <label for="address">Adress</label><br>
+              <input type="text" id="address" name="address" required placeholder="Adress">
+            </div>
+            <div class="input-window small-window address">
+              <label for="postalNo">Postnummer</label>
+              <input type="text" id="postalNo" name="postalNo" placeholder="Postnummer" required>
+            </div>
+            <div class="input-window small-window address">
+              <label for="city">Postort</label>
+              <input type="text" id="city" name="city" placeholder="Postort" required>
+            </div>
+          </div>
+          <button type="submit" id="addCourse" class="btn admin-buttons submit-form">Spara</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="assignCourseModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="addCourseToStudentTitle">Tilldela kurs</h3><span class="close">&times;</span>
+        </div>
+        <form id="assignCourseForm" onsubmit="return false;">
+          <div class="form-container">
+            <select size="15" id="courseContainer" name="courseId">
+            </select>
+          </div>
+          <button type="submit" id="submitCourse" class="btn admin-buttons submit-form">Spara</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

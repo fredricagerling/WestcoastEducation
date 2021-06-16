@@ -2,20 +2,9 @@
 
 const categories = document.querySelector('#courseCategories');
 
-async function loadCourseTypes() {
-    const url = 'http://localhost:3000/courseTypes';
-    const response = await fetch(url);
-
-    if (!response.ok) {
-        throw new Error(response.statusText);
-    }
-
-    return response.json();
-}
-
 function createFilterButton(courseTypes) {
     for (let type of courseTypes) {
-        displayFilterButton(type.type);
+        displayFilterButton(type.categoryName);
     }
 }
 

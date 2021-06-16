@@ -6,13 +6,13 @@ const confirmationMessage = document.querySelector("#confirmation");
 const closeButton = document.querySelector(".close");
 
 let cartArray = [];
-
 closeButton.addEventListener('click', () => {
   confirmationMessage.style.display = "none";
 })
 
 function addCourseToCart(course) {
-  if (cartArray.some(e => e.id === course.id)) {
+  console.log(course.courseId)
+  if (cartArray.some(e => e.courseId === course.courseId)) {
     return;
   }
 
