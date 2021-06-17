@@ -1,6 +1,6 @@
 'use strict';
 
-class StudentViewModel {
+class Student {
   constructor(student) {
     this.firstName = student.firstName;
     this.lastName = student.lastName;
@@ -12,14 +12,14 @@ class StudentViewModel {
   }
 }
 
-class CoursesStudentsViewModel {
-  constructor(courseStudent) {
-    this.courseId = parseInt(courseStudent.courseId);
+class StudentsCourses {
+  constructor(studentCourse) {
+    this.courseId = parseInt(studentCourse.courseId);
     this.studentId = studentToUpdate.id;
   }
 }
 
-class UpdateCourseViewModel {
+class UpdateCourse {
   constructor(course) {
     this.title = course.editTitle;
     this.courseNumber = parseInt(course.editCourseNumber);
@@ -32,7 +32,7 @@ class UpdateCourseViewModel {
   }
 }
 
-class AddCourseViewModel {
+class AddCourse {
   constructor(course) {
     this.title = course.title;
     this.courseNumber = parseInt(course.courseNumber);

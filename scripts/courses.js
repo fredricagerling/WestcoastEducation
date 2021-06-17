@@ -10,30 +10,18 @@ const courseInfo = document.querySelector('#courseInfo');
 let selectedCategory = 'Visa alla';
 
 bestSellersButton.addEventListener('click', () => {
-  bestsellerCourses().then(data => createStudentTable(data)).catch(err => console.log(err));
+  bestsellerCourses().then(data => createCourseBox(data)).catch(err => console.log(err));
 
   selectedCategory = 'Bästsäljare';
 });
 
 allCoursesButton.addEventListener('click', () => {
-  loadStudents().then(data => createStudentTable(data)).catch(err => console.log(err));
+  loadStudents().then(data => createCourseBox(data)).catch(err => console.log(err));
 
   selectedCategory = 'Visa alla';
 });
 
-
-async function loadStudents() {
-  const url = `${baseUrl}`;
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    throw new Error(response.statusText);
-  }
-
-  return response.json();
-}
-
-function createStudentTable(courseList) {
+function createCourseBox(courseList) {
   courses.innerHTML = '';
   updateTextParagraph(courseList.length)
 
@@ -93,7 +81,7 @@ function displayCourse(course) {
         <h3>${course.title}</h3>
         <h4>Kategori: ${course.category}</h4>
         <h4>Skapare: ${course.teacher}</h4>
-        <div class="course-info-second"><span>${course.date}</span>
+        <div class="course-info-second"><span>${course.date.slice(0, 10)}</span>
         <span class="separator"> &#9679; </span>
         <span>Betyg: ${course.score}</span>
         <span class="separator"> &#9679; </span>
@@ -139,4 +127,4 @@ async function filterCourses(course) {
   return response.json();
 }
 
-loadStudents().then(data => createStudentTable(data)).catch(err => console.log(err));
+loadCourses().then(data => createCourseBox(data)).catch(err => console.log(err));

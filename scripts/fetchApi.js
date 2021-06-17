@@ -50,19 +50,19 @@ async function submitForm(submit, method, form) {
   let viewModel, url;
 
   if (submit === 'assign') {
-    viewModel = new CoursesStudentsViewModel(value);
+    viewModel = new StudentsCourses(value);
     url = 'https://localhost:5503/api/studentscourses';
   } else if (submit === 'addStudent' && method === 'POST') {
-    viewModel = new StudentViewModel(value);
+    viewModel = new Student(value);
     url = 'https://localhost:5503/api/students';
   } else if (submit === 'updateStudent' && method === 'PUT') {
-    viewModel = new StudentViewModel(value);
+    viewModel = new Student(value);
     url = `https://localhost:5503/api/students/${studentToUpdate.id}`;
   } else if(submit === 'updateCourse' && method === 'PUT'){
-    viewModel = new UpdateCourseViewModel(value);
+    viewModel = new UpdateCourse(value);
     url = `https://localhost:5503/api/courses/${courseToUpdate}`
   } else if(submit === 'addCourse' && method === 'POST'){
-    viewModel = new AddCourseViewModel(value);
+    viewModel = new AddCourse(value);
     url = `https://localhost:5503/api/courses`
   }
   postToDatabase(url, method, viewModel);

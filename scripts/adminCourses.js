@@ -16,45 +16,11 @@ const courseInfo = document.querySelectorAll('#editTitle, #editCourseLevel, #edi
 
 let courseToUpdate;
 
-addCourseButton.addEventListener('click', addCourseToDB);
-
-function addCourseToDB() {
-  addCourse.style.display = 'flex';
-  addForm.addEventListener('submit', submitForm.bind(this, 'addCourse', 'POST', addForm));
-}
-
 for (let i = 0; i < closeButton.length; i++) {
   closeButton[i].addEventListener('click', closeModal);
 }
 
-function closeModal() {
-  const inputs = document.querySelectorAll('input');
-
-  editCourse.style.display = 'none';
-  addCourse.style.display = 'none';
-
-  for (let input of inputs) {
-    input.value = null;
-  }
-};
-
-function updateCourse(course) {
-  console.log(course.isActive);
-  const [Title, Activity, CourseLevel, Description, Score, Price, Length, CourseNumber] = courseInfo;
-
-  editCourse.style.display = 'flex';
-  Title.value = course.title;
-  CourseLevel.value = course.courseLevel;
-  Activity.value = course.isActive;
-  Description.value = course.description;
-  Score.value = course.score;
-  Price.value = course.price;
-  Length.value = course.length;
-  CourseNumber.value = course.courseNumber;
-  courseToUpdate = course.courseId;
-
-  editForm.addEventListener('submit', submitForm.bind(this, 'updateCourse', 'PUT', editForm));
-}
+addCourseButton.addEventListener('click', postCourseHandler);
 
 function createStudentTable(courseList) {
   tableBody.innerHTML = "";
@@ -74,11 +40,35 @@ function createStudentTable(courseList) {
       </tr>`
     )
     const editCourse = document.querySelector(`#editCourse${course.courseId}`);
-    editCourse.addEventListener('click', updateCourse.bind(this, course));
+    editCourse.addEventListener('click', updateCourseHandler.bind(this, course));
   }
 
   searchTable();
   highlightTableRow();
+  selectingCourse();
+}
+
+function postCourseHandler() {
+  addCourse.style.display = 'flex';
+  addForm.addEventListener('submit', submitForm.bind(this, 'addCourse', 'POST', addForm));
+}
+
+function updateCourseHandler(course) {
+  console.log(course.isActive);
+  const [Title, Activity, CourseLevel, Description, Score, Price, Length, CourseNumber] = courseInfo;
+
+  editCourse.style.display = 'flex';
+  Title.value = course.title;
+  CourseLevel.value = course.courseLevel;
+  Activity.value = course.isActive;
+  Description.value = course.description;
+  Score.value = course.score;
+  Price.value = course.price;
+  Length.value = course.length;
+  CourseNumber.value = course.courseNumber;
+  courseToUpdate = course.courseId;
+
+  editForm.addEventListener('submit', submitForm.bind(this, 'updateCourse', 'PUT', editForm));
 }
 
 function populateTeacherDropDown(teachers) {
@@ -101,6 +91,28 @@ function populateCategoryDropDown(categories) {
     categoryDropdown.insertAdjacentHTML('beforeend',
       `<option value="${category.categoryName}">${category.categoryName}</option>`);
   }
+}
+
+function closeModal() {
+  const inputs = document.querySelectorAll('input');
+
+  editCourse.style.display = 'none';
+  addCourse.style.display = 'none';
+
+  for (let input of inputs) {
+    input.value = null;
+  }
+};
+
+function selectingCourse() {
+  $("tr").not(':first').click(
+    function () {
+      $('#overviewTable tbody').children().removeClass('selected');
+
+      $(this).addClass('selected');
+      assignCourseButton.removeAttribute('disabled');
+    }
+  );
 }
 
 loadCourses().then(data => createStudentTable(data)).catch(err => console.log(err));

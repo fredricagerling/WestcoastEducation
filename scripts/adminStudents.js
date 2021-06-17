@@ -20,37 +20,35 @@ assignCourseButton.addEventListener('click', () => {
   loadCourses().then(data => populateCourseSelector(data)).catch(err => console.log(err))
 });
 
-const populateCourseSelector = (courses) => {
-  const addCourseToStudentForm = document.getElementById('courseContainer');
-  const addCourseToStudentTitle = document.getElementById('addCourseToStudentTitle');
-  const assignForm = document.querySelector('#assignCourseForm');
-
-  assignForm.addEventListener('submit', submitForm.bind(this, 'assign', 'POST', assignForm));
-
-  addCourseToStudentTitle.innerHTML = `Tilldela kurs till ${studentToUpdate.fullName}`
-  addCourseToStudentForm.innerHTML = "";
-
-  const student = students.filter(f => f.studentId === studentToUpdate.id);
-
-  for (let course of courses) {
-    var result = student[0].courses.find(title => title == course.title);
-
-    if (result == undefined && course.isActive != false) {
-      addCourseToStudentForm.insertAdjacentHTML('beforeend',
-        `<option value="${course.courseId}">${course.title}</option>`)
-    }
-  }
-}
-
-for (let i = 0; i < closeButton.length; i++) {
-  closeButton[i].addEventListener('click', closeModal);
-}
-
 addStudentButton.addEventListener('click', () => {
   studentModal.style.display = 'flex';
   modalTitle.innerHTML = 'Lägg till student';
   addForm.addEventListener('submit', submitForm.bind(this, 'addStudent', 'POST', form));
 });
+
+for (let i = 0; i < closeButton.length; i++) {
+  closeButton[i].addEventListener('click', closeModal);
+}
+
+const populateCourseSelector = (courses) => {
+  const courseList = document.getElementById('courseContainer');
+  const modalTitle = document.getElementById('addCourseToStudentTitle');
+  const assignForm = document.querySelector('#assignCourseForm');
+  const student = students.filter(f => f.studentId === studentToUpdate.id);
+
+  modalTitle.innerHTML = `Tilldela kurs till ${studentToUpdate.fullName}`
+  courseList.innerHTML = "";
+  
+  for (let course of courses) {
+    var result = student[0].courses.find(title => title == course.title);
+    
+    if (result == undefined && course.isActive != false) {
+      courseList.insertAdjacentHTML('beforeend',
+      `<option value="${course.courseId}">${course.title}</option>`)
+    }
+  }
+  assignForm.addEventListener('submit', submitForm.bind(this, 'assign', 'POST', assignForm));
+}
 
 function closeModal() {
   const inputs = document.querySelectorAll('input');
@@ -63,7 +61,7 @@ function closeModal() {
   }
 };
 
-function updateCourse(student) {
+function updateCourseHandler(student) {
   const [FirstName, LastName, Phone, Email, Address, PostalNo, City] = studentInfo;
 
   studentModal.style.display = 'flex';
@@ -97,15 +95,15 @@ function createStudentTable(studentList) {
       </tr>`
     )
     const editStudent = document.querySelector(`#editStudent${student.studentId}`);
-    editStudent.addEventListener('click', updateCourse.bind(this, student));
+    editStudent.addEventListener('click', updateCourseHandler.bind(this, student));
   }
 
   searchTable();
   highlightTableRow();
-  selectingStudent();
+  selectingCourse();
 }
 
-function selectingStudent() {
+function selectingCourse() {
   $("tr").not(':first').click(
     function () {
       $('#overviewTable tbody').children().removeClass('selected');
