@@ -7,7 +7,8 @@ const addStudentButton = document.getElementById('addNewStudent');
 const modalTitle = document.getElementById('modalTitle');
 const tableBody = document.querySelector('#overviewTable tbody');
 const assignCourseButton = document.getElementById('assignCourse');
-const assignCourseModal = document.querySelector('#assignCourseModal');
+const assignCourseModal = document.getElementById('assignCourseModal');
+const moreInfoModal = document.getElementById('moreInfoModal');
 const form = document.querySelector('form');
 const studentInfo = document.querySelectorAll('#firstName, #lastName, #address, #postalNo, #city, #email, #phone');
 
@@ -38,13 +39,13 @@ const populateCourseSelector = (courses) => {
 
   modalTitle.innerHTML = `Tilldela kurs till ${studentToUpdate.fullName}`
   courseList.innerHTML = "";
-  
+
   for (let course of courses) {
     var result = student[0].courses.find(title => title == course.title);
-    
+
     if (result == undefined && course.isActive != false) {
       courseList.insertAdjacentHTML('beforeend',
-      `<option value="${course.courseId}">${course.title}</option>`)
+        `<option value="${course.courseId}">${course.title}</option>`)
     }
   }
   assignForm.addEventListener('submit', submitForm.bind(this, 'assign', 'POST', assignForm));
@@ -55,11 +56,32 @@ function closeModal() {
 
   studentModal.style.display = 'none';
   assignCourseModal.style.display = 'none';
+  moreInfoModal.style.display = 'none';
 
   for (let input of inputs) {
     input.value = null;
   }
 };
+
+function moreInfoHandler(student) {
+  moreInfoModal.style.display = 'flex';
+  const title = moreInfoModal.querySelector('h3');
+  const fullAddress = document.getElementById('fullAddress');
+  const courseList = document.getElementById('courseList');
+  
+  fullAddress.innerHTML = '';
+  courseList.innerHTML = '';
+  
+  title.innerHTML = `${student.firstName} ${student.lastName}`;
+  fullAddress.insertAdjacentHTML('beforeend',
+    `<h3>Adress:</h3><span>${student.address}<br> ${student.postalNo}<br> ${student.postalAddress}</span><br><br>
+  <h3>Telefon:</h3> <span>${student.phoneNumber}</span><br>
+  <h3>Email:</h3> <span>${student.email}<br><br></span>`)
+
+  for (let i = 0; i < student.courses.length; i++) {
+    courseList.insertAdjacentHTML('beforeend', `<h3>Kurser:</h3><span>${student.courses[i]}</span><br>`)
+  }
+}
 
 function updateCourseHandler(student) {
   const [FirstName, LastName, Phone, Email, Address, PostalNo, City] = studentInfo;
@@ -85,7 +107,7 @@ function createStudentTable(studentList) {
     students.push(student);
     tableBody.insertAdjacentHTML('beforeend',
       `<tr id="student${student.studentId}">
-        <td><i class="fas fa-info-circle"></i>
+        <td><i class="fas fa-info-circle" id="moreInfo${student.studentId}"></i>
         <td>${student.studentId}</td>
         <td>${student.firstName} ${student.lastName}</td>
         <td>${student.email}</td>
@@ -94,7 +116,10 @@ function createStudentTable(studentList) {
         <td><i class="fas fa-edit" id="editStudent${student.studentId}"></i></td>
       </tr>`
     )
-    const editStudent = document.querySelector(`#editStudent${student.studentId}`);
+    const moreInfo = document.getElementById(`moreInfo${student.studentId}`);
+    const editStudent = document.getElementById(`editStudent${student.studentId}`);
+
+    moreInfo.addEventListener('click', moreInfoHandler.bind(this, student));
     editStudent.addEventListener('click', updateCourseHandler.bind(this, student));
   }
 

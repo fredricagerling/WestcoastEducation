@@ -1,6 +1,6 @@
 'use strict';
 
-async function loadCourseTypes() {
+async function loadCourseCategories() {
   const url = 'https://localhost:5503/api/categories';
   const response = await fetch(url);
 

@@ -12,7 +12,7 @@ class Student {
   }
 }
 
-class StudentsCourses {
+class StudentCourses {
   constructor(studentCourse) {
     this.courseId = parseInt(studentCourse.courseId);
     this.studentId = studentToUpdate.id;

@@ -21,4 +21,4 @@ function displayFilterButton(courseType) {
     });
 }
 
-loadCourseTypes().then(data => createFilterButton(data)).catch(err => console.log(err));
+loadCourseCategories().then(data => createFilterButton(data)).catch(err => console.log(err));
