@@ -50,7 +50,7 @@ async function submitForm(submit, method, form) {
   let viewModel, url;
 
   if (submit === 'assign') {
-    viewModel = new StudentsCourses(value);
+    viewModel = new StudentCourses(value);
     url = 'https://localhost:5503/api/studentscourses';
   } else if (submit === 'addStudent' && method === 'POST') {
     viewModel = new Student(value);

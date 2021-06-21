@@ -42,10 +42,10 @@
         <thead>
           <tr>
             <th></th>
-            <th>ID</th>
+            <th class="hide-colum-mobile">ID</th>
             <th>Titel</th>
-            <th>Lärare</th>
-            <th>Studenter</th>
+            <th class="hide-colum-mobile">Lärare</th>
+            <th class="hide-colum-mobile">Studenter</th>
             <th>Aktiv</th>
             <th></th>
           </tr>
@@ -106,7 +106,7 @@
               <input type="number" id="editCourseNumber" name="editCourseNumber" placeholder="Kursnummer" required>
             </div>
           </div>
-          <button type="click" id="editCourseBtn" class="btn admin-buttons">Spara ändringar</button>
+          <button type="submit" id="editCourseBtn" class="btn admin-buttons submit-form">Spara ändringar</button>
         </form>
       </div>
     </div>
@@ -159,8 +159,17 @@
               <input type="number" id="courseNumber" name="courseNumber" placeholder="Kursnummer" required>
             </div>
           </div>
-          <button type="click" id="addCourseBtn" class="btn admin-buttons">Lägg till kurs</button>
+          <button type="submit" id="addCourseBtn" class="btn admin-buttons submit-form">Lägg till kurs</button>
         </form>
+      </div>
+    </div>
+
+    <div id="moreInfoModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Namn Namnsson</h3><span class="close">&times;</span>
+        </div>
+        <div id="courseDetails"></div>
       </div>
     </div>
   </main>

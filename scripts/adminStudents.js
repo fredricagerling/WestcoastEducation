@@ -28,7 +28,7 @@ addStudentButton.addEventListener('click', () => {
 });
 
 for (let i = 0; i < closeButton.length; i++) {
-  closeButton[i].addEventListener('click', closeModal);
+  closeButton[i].addEventListener('click', closeModalHandler);
 }
 
 const populateCourseSelector = (courses) => {
@@ -51,7 +51,7 @@ const populateCourseSelector = (courses) => {
   assignForm.addEventListener('submit', submitForm.bind(this, 'assign', 'POST', assignForm));
 }
 
-function closeModal() {
+function closeModalHandler() {
   const inputs = document.querySelectorAll('input');
 
   studentModal.style.display = 'none';
@@ -68,18 +68,30 @@ function moreInfoHandler(student) {
   const title = moreInfoModal.querySelector('h3');
   const fullAddress = document.getElementById('fullAddress');
   const courseList = document.getElementById('courseList');
-  
+
   fullAddress.innerHTML = '';
-  courseList.innerHTML = '';
-  
+  courseList.innerHTML = `<h3>Kurser:</h3>`
+
   title.innerHTML = `${student.firstName} ${student.lastName}`;
   fullAddress.insertAdjacentHTML('beforeend',
-    `<h3>Adress:</h3><span>${student.address}<br> ${student.postalNo}<br> ${student.postalAddress}</span><br><br>
-  <h3>Telefon:</h3> <span>${student.phoneNumber}</span><br>
-  <h3>Email:</h3> <span>${student.email}<br><br></span>`)
+    `<div id="studentContactInfo">
+      <div class="modal-student-info">
+        <h3>Adress:</h3>
+        <span>${student.address}</span>
+        <span>${student.postalNo}</span>
+        <span>${student.postalAddress}</span>
+      </div>
+      
+      <div class="modal-student-info">
+        <h3>Telefon:</h3>
+        <span>${student.phoneNumber}</span>
+        <h3>Email:</h3>
+        <span>${student.email}</span>
+      </div>
+    </div>`)
 
   for (let i = 0; i < student.courses.length; i++) {
-    courseList.insertAdjacentHTML('beforeend', `<h3>Kurser:</h3><span>${student.courses[i]}</span><br>`)
+    courseList.insertAdjacentHTML('beforeend', `<span>${student.courses[i]}</span>`)
   }
 }
 
@@ -108,10 +120,10 @@ function createStudentTable(studentList) {
     tableBody.insertAdjacentHTML('beforeend',
       `<tr id="student${student.studentId}">
         <td><i class="fas fa-info-circle" id="moreInfo${student.studentId}"></i>
-        <td>${student.studentId}</td>
+        <td class="hide-colum-mobile">${student.studentId}</td>
         <td>${student.firstName} ${student.lastName}</td>
-        <td>${student.email}</td>
-        <td>${student.phoneNumber}</td>
+        <td class="hide-colum-mobile">${student.email}</td>
+        <td class="hide-colum-mobile">${student.phoneNumber}</td>
         <td>${student.courses.length}</td>
         <td><i class="fas fa-edit" id="editStudent${student.studentId}"></i></td>
       </tr>`

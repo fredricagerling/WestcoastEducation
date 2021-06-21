@@ -33,20 +33,19 @@
   <main>
     <div id="container">
       <div id="options">
-        <div id="optionsButtons">
-          <button id="addNewStudent" class="btn admin-buttons mini">Lägg till student</button>
-          <button id="assignCourse" class="btn-secondary admin-buttons mini" disabled>Tilldela kurs</button>
-        </div>
+        <button id="addNewStudent" class="btn admin-buttons mini">Lägg till student</button>
+        <button id="assignCourse" class="btn-secondary admin-buttons mini" disabled>Tilldela kurs</button>
+
         <input type="text" name="search" id="search" placeholder="Sök...">
       </div>
       <table id="overviewTable">
         <thead>
           <tr>
             <th></th>
-            <th>ID</th>
+            <th class="hide-colum-mobile">ID</th>
             <th>Namn</th>
-            <th>Email</th>
-            <th>Mobil</th>
+            <th class="hide-colum-mobile">Email</th>
+            <th class="hide-colum-mobile">Mobil</th>
             <th>Kurser</th>
             <th></th>
           </tr>
