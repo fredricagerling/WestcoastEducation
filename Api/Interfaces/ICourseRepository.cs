@@ -9,7 +9,8 @@ namespace Api.Interfaces
     Task AddAsync(Course course);
     Task<IEnumerable<Course>> GetCoursesAsync();
     Task<Course> GetCourseByIdAsync(int id);
-    Task<Course> GetCourseAsync(string title);
+    Task<IEnumerable<Course>> GetCoursesByCategoryAsync(string category);
+    Task<IEnumerable<Course>> GetBestSellerCoursesAsync();
     void Update(Course course);
     void Delete(Course course);
   }

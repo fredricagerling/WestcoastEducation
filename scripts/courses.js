@@ -1,6 +1,4 @@
 'use strict';
-
-const baseUrl = 'https://localhost:5503/api/courses';
 const courses = document.querySelector('#coursesContainer');
 const displayAmountOfCourses = document.querySelector('#info-text');
 const allCoursesButton = document.querySelector('#showAllCourses');
@@ -10,66 +8,35 @@ const courseInfo = document.querySelector('#courseInfo');
 let selectedCategory = 'Visa alla';
 
 bestSellersButton.addEventListener('click', () => {
-  bestsellerCourses().then(data => createCourseBox(data)).catch(err => console.log(err));
+  bestsellerCourses().then(data => createCourseContainer(data)).catch(err => console.log(err));
 
   selectedCategory = 'Bästsäljare';
 });
 
 allCoursesButton.addEventListener('click', () => {
-  loadStudents().then(data => createCourseBox(data)).catch(err => console.log(err));
+  loadCourses().then(data => createCourseContainer(data)).catch(err => console.log(err));
 
   selectedCategory = 'Visa alla';
 });
 
-function createCourseBox(courseList) {
+function createCourseContainer(courseList) {
   courses.innerHTML = '';
+  // Kolla om kursen är aktiv
   updateTextParagraph(courseList.length)
 
+  // if(loggedInUser != null)
+
+  //     var result = loggedInUser.courses.find(title => title == course.title);
+
+
   for (let i = 0; i < courseList.length; i++) {
-    displayCourse(courseList[i]);
-    createPurchaseButton(i, courseList[i]);
-    createEvent(i, courseList[i]);
-  }
-}
-
-function createEvent(index, course) {
-  const courseBox = document.getElementsByClassName('course')[index];
-  courseBox.addEventListener('click', (e) => {
-    if (!e.target.classList.contains('add-to-cart')) {
-      courseInfo.innerHTML = '';
-      courseInfo.style.display = "flex";
-      courseInfo.insertAdjacentHTML(
-        'beforeend',
-
-        `<div class="modal-content">
-          <div class="modal-header">
-          <h3 class="modal-title">${course.title}</h3><span class="close close-description">&times;</span>
-          </div>
-          <div class="course-details"><h3>Kursbeskrivning:</h3><span>${course.description}</span>
-          </div>
-        </div>`);
-
-      const closeDetailsButton = document.querySelector('.close-description');
-      closeDetailsButton.addEventListener('click', () => {
-        courseInfo.style.display = 'none';
-
-      });
+    if (courseList[i].isActive == false) {
+      continue;
     }
-  });
-}
-
-function createPurchaseButton(index, course) {
-  const button = document.createElement('button');
-  button.textContent = 'Köp';
-  button.classList.add('add-to-cart');
-  button.classList.add('btn');
-  button.addEventListener('click', () => {
-    addCourseToCart(course);
-
-  });
-
-  const courseContainer = document.getElementsByClassName('course')[index];
-  courseContainer.appendChild(button);
+    else {
+      displayCourse(courseList[i]);
+    }
+  }
 }
 
 function displayCourse(course) {
@@ -87,7 +54,12 @@ function displayCourse(course) {
         <span class="separator"> &#9679; </span>
         <span>${course.length} timmar</span></div>
       </div>
+      <button class="add-to-cart btn" id="purchaseCourse${course.courseId}">Köp</button>
     </div>`);
+
+    const purchaseButton = document.getElementById(`purchaseCourse${course.courseId}`);
+    
+    purchaseButton.addEventListener('click', addCourseToCart.bind(course));
 }
 
 function updateTextParagraph(count) {
@@ -105,26 +77,46 @@ function updateTextParagraph(count) {
   displayAmountOfCourses.innerHTML = text;
 }
 
-async function bestsellerCourses() {
-  const url = `${baseUrl}?_sort=score&_order=desc&_limit=3`;
-  const response = await fetch(url);
 
-  if (!response.ok) {
-    throw new Error(response.statusText);
-  }
+loadCourses().then(data => createCourseContainer(data)).catch(err => console.log(err));
 
-  return response.json();
-}
 
-async function filterCourses(course) {
-  const url = `${baseUrl}?courseType_like=${course}`;
-  const response = await fetch(url);
+// function createEvent(index, course) {
+//   const courseBox = document.getElementsByClassName('course')[index];
+//   courseBox.addEventListener('click', (e) => {
+//     if (!e.target.classList.contains('add-to-cart')) {
+//       courseInfo.innerHTML = '';
+//       courseInfo.style.display = "flex";
+//       courseInfo.insertAdjacentHTML(
+//         'beforeend',
 
-  if (!response.ok) {
-    throw new Error(response.statusText);
-  }
+//         `<div class="modal-content">
+//           <div class="modal-header">
+//           <h3 class="modal-title">${course.title}</h3><span class="close close-description">&times;</span>
+//           </div>
+//           <div class="course-details"><h3>Kursbeskrivning:</h3><span>${course.description}</span>
+//           </div>
+//         </div>`);
 
-  return response.json();
-}
+//       const closeDetailsButton = document.querySelector('.close-description');
+//       closeDetailsButton.addEventListener('click', () => {
+//         courseInfo.style.display = 'none';
 
-loadCourses().then(data => createCourseBox(data)).catch(err => console.log(err));
+//       });
+//     }
+//   });
+// }
+
+// function createPurchaseButton(index, course) {
+//   const button = document.createElement('button');
+//   button.textContent = 'Köp';
+//   button.classList.add('add-to-cart');
+//   button.classList.add('btn');
+//   button.addEventListener('click', () => {
+//     addCourseToCart(course);
+
+//   });
+
+//   const courseContainer = document.getElementsByClassName('course')[index];
+//   courseContainer.appendChild(button);
+// }

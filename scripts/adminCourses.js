@@ -1,6 +1,4 @@
 'use strict';
-const baseUrl = 'https://localhost:5503/api/courses';
-
 const overviewTable = document.querySelector('#overviewTable');
 const editCourse = document.querySelector('#editCourseModal');
 const addCourse = document.querySelector('#addCourseModal')
@@ -61,18 +59,18 @@ function moreInfoHandler(course) {
   const activity = course.isActive ? 'Ja' : 'Nej';
   
   courseDetails.innerHTML = 
-  `<div><h3>Beskrivning:</h3><p>${course.description}</p>
-  <section>
-  <div><h3>KursId:</h3><p>${course.courseId}</p></div>
-  <div><h3>Kursnummer:</h3><p>${course.courseNumber}</p></div>
-  <div><h3>Aktiv:</h3><p>${activity}</p></div>
-  <div><h3>Nivå:</h3><p>${course.courseLevel}</p></div>
-  <div><h3>Lärare:</h3><p>${course.teacher}</p></div>
-  <div><h3>Längd:</h3><p>${course.length} timmar</p></div>
-  <div><h3>Pris:</h3><p>${course.price}</p></div>
-  <div><h3>Betyg:</h3><p>${course.score}/5</p></div>
-  </section>
-  <div>`;
+    `<div><h3>Beskrivning:</h3><p>${course.description}</p>
+      <section>
+        <div><h3>KursId:</h3><p>${course.courseId}</p></div>
+        <div><h3>Kursnummer:</h3><p>${course.courseNumber}</p></div>
+        <div><h3>Aktiv:</h3><p>${activity}</p></div>
+        <div><h3>Nivå:</h3><p>${course.courseLevel}</p></div>
+        <div><h3>Lärare:</h3><p>${course.teacher}</p></div>
+        <div><h3>Längd:</h3><p>${course.length} timmar</p></div>
+        <div><h3>Pris:</h3><p>${course.price}</p></div>
+        <div><h3>Betyg:</h3><p>${course.score}/5</p></div>
+      </section>
+    <div>`;
 }
 
 function postCourseHandler() {

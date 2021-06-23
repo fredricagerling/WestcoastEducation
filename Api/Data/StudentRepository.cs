@@ -25,15 +25,9 @@ namespace Api.Data
       context.Remove(student);
     }
 
-    public async Task<Student> GetStudentAsync(string name)
-    {
-      var student = await context.Students.FirstOrDefaultAsync(s => s.FirstName == name);
-      return student;
-    }
-
     public async Task<Student> GetStudentByIdAsync(int id)
     {
-      var student = await context.Students.FindAsync(id);
+      var student = await context.Students.Include(c => c.Courses).ThenInclude(c => c.Course).FirstOrDefaultAsync(i => i.StudentId == id);
       return student;
     }
 

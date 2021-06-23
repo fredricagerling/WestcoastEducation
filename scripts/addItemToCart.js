@@ -22,9 +22,9 @@ function addCourseToCart(course) {
   confirmationMessage.style.display = "flex";
 
   cartItem.innerHTML =
-    ` <p>${course.title}</p>
-          <span>av ${course.teacher}</span>
-        </div>`;
+    `<p>${course.title}</p>
+      <span>av ${course.teacher}</span>
+    </div>`;
 }
 
 function checkSessionStorage() {

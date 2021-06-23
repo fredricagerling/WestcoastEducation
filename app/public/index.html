@@ -2,128 +2,139 @@
 <html lang="se">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Westcoast Education</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/content/css/styles.css">
-    <link rel="stylesheet" href="/content/css/index.css">
-    <link rel="stylesheet" href="/content/css/styles-mobile.css">
-    <link rel="stylesheet" href="/content/css/admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Westcoast Education</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/content/css/styles.css">
+  <link rel="stylesheet" href="/content/css/index.css">
+  <link rel="stylesheet" href="/content/css/styles-mobile.css">
+  <link rel="stylesheet" href="/content/css/admin.css">
+  <link rel="stylesheet" href="/content/css/modal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
-    <script src="/scripts/navbar.js" defer></script>
-
+  <script src="/scripts/fetchApi.js" defer></script>
+  <script src="/scripts/login.js" defer></script>
+  <script src="/scripts/navbar.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="index.html"><img src="/content/img/logo2.png" alt="Westcoast Education"></a>
-            <ul class="nav-links">
-                <li class="nav-item"><a href="courses.html">Våra utbildningar</a></li>
-                <li class="nav-item"><a href="#">Om oss</a></li>
-                <li><a href="cart.html"><i class="fas fa-shopping-cart"><span id="cartCounter">0</span></i></a></li>
-                <li><a href="../admin/admin.html"><button id="loginButton">Admin</button></a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section class="landing">
-            <div class="landing-text">
-                <h1>Är du redo för nästa steg i din karriär?</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, aut autem sequi doloremque
-                    voluptates at ea quia a! Est accusantium velit quo odit tempora iure odio aspernatur. Cupiditate
-                    voluptates velit eius voluptatem voluptas sequi fugiat aut, quisquam, deleniti in saepe.</p>
-                <button class="btn">Ta steget</button>
-            </div>
-        </section>
-        <section class="sales-pitch">
-            <div class="pitch">
-                <div class="pitch-text">
-                    <h2>Lorem ipsum, dolor sit amet.</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, aut autem sequi doloremque
-                        voluptates at ea quia a! Est accusantium velit quo odit tempora iure odio aspernatur. </p>
-                    <div class="button-container"><button class="btn-secondary">Läs mer</button></div>
-                </div>
-                <img src="/content/img/photo-1559223607-180d0c16c333.jfif" alt="En man håller föredrag">
-            </div>
-            <div class="pitch reverse">
-                <div class="pitch-text">
-                    <h2>Lorem ipsum, sit amet consectetur!</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, aut autem sequi doloremque
-                        voluptates at ea quia a! Est accusantium velit quo odit tempora iure odio aspernatur. </p>
-                    <div class="button-container"><button class="btn-secondary">Läs mer</button></div>
-                </div>
-                <img src="/content/img/photo-1524178232363-1fb2b075b655.jfif"
-                    alt="Elever i klassrum lyssnar på föredrag">
-
-            </div>
-            <div class="promises">
-                <div class="promise">
-                    <h3>Lorem</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nostrum nisi adipisci cum
-                        repudiandae earum pariatur magni ipsa delectus voluptatibus.</p>
-                </div>
-                <div class="promise">
-                    <h3>Ipsum</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi magnam mollitia, non in
-                        minima quasi deleniti aliquam nisi libero voluptatem!</p>
-                </div>
-                <div class="promise">
-                    <h3>Dolor</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur reprehenderit animi est
-                        tempore voluptatem suscipit nobis iste quisquam, eligendi recusandae.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="footer">
-            <ul class="footer-content">
-                <h4>Mer om Westcoast Education</h4>
-                <li>Topplistan</li>
-                <li>Om Westcoast</li>
-                <li>Här finns vi</li>
-                <li>Lediga Jobb</li>
-                <li>Press</li>
-            </ul>
-            <div class="footer-content">
-                <h4>Kontakta oss</h4>
-                <p>Huvudkontor<br>
-                    Westcoast Education AB<br>
-                    Lillekärr Södra 170<br>
-                    425 31 Hisings Kärra<br><br>
-                    contact@westcoasteducation.se</p>
-            </div>
-
-            <div class="footer-content">
-                <h4>Prenumerera på vårt nyhetsbrev</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem aliquam quis iure
-                    dicta sequi.</p>
-                <button class="btn">Prenumerera</button>
-            </div>
+  <header>
+    <nav>
+      <a href="index.html"><img src="/content/img/logo2.png" alt="Westcoast Education"></a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="courses.html">Våra utbildningar</a></li>
+        <li class="nav-item"><a href="#">Om oss</a></li>
+        <li><a href="cart.html"><i class="fas fa-shopping-cart"><span id="cartCounter">0</span></i></a></li>
+        <li><button id="loginButton">Logga in</button></a></li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="landing">
+      <div class="landing-text">
+        <h1>Är du redo för nästa steg i din karriär?</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, aut autem sequi doloremque
+          voluptates at ea quia a! Est accusantium velit quo odit tempora iure odio aspernatur. Cupiditate
+          voluptates velit eius voluptatem voluptas sequi fugiat aut, quisquam, deleniti in saepe.</p>
+        <button class="btn">Ta steget</button>
+      </div>
+    </section>
+    <section class="sales-pitch">
+      <div class="pitch">
+        <div class="pitch-text">
+          <h2>Lorem ipsum, dolor sit amet.</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, aut autem sequi doloremque
+            voluptates at ea quia a! Est accusantium velit quo odit tempora iure odio aspernatur. </p>
+          <div class="button-container"><button class="btn-secondary">Läs mer</button></div>
         </div>
-        <div class="footer-2">
-            <div id="social-media">
-                <img src="/content/img/iconmonstr-facebook-4-240.png" alt="" srcset="">
-                <img src="/content/img/iconmonstr-instagram-14-240.png" alt="" srcset="">
-                <img src="/content/img/iconmonstr-linkedin-4-240.png" alt="" srcset="">
-                <img src="/content/img/iconmonstr-youtube-9-240.png" alt="" srcset="">
-            </div>
-            <span>© Westcoast Education AB. En del av Academedia. Alla rättigheter reserverade.</span>
+        <img src="/content/img/photo-1559223607-180d0c16c333.jfif" alt="En man håller föredrag">
+      </div>
+      <div class="pitch reverse">
+        <div class="pitch-text">
+          <h2>Lorem ipsum, sit amet consectetur!</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, aut autem sequi doloremque
+            voluptates at ea quia a! Est accusantium velit quo odit tempora iure odio aspernatur. </p>
+          <div class="button-container"><button class="btn-secondary">Läs mer</button></div>
         </div>
-    </footer>
+        <img src="/content/img/photo-1524178232363-1fb2b075b655.jfif" alt="Elever i klassrum lyssnar på föredrag">
+
+      </div>
+      <div class="promises">
+        <div class="promise">
+          <h3>Lorem</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nostrum nisi adipisci cum
+            repudiandae earum pariatur magni ipsa delectus voluptatibus.</p>
+        </div>
+        <div class="promise">
+          <h3>Ipsum</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi magnam mollitia, non in
+            minima quasi deleniti aliquam nisi libero voluptatem!</p>
+        </div>
+        <div class="promise">
+          <h3>Dolor</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur reprehenderit animi est
+            tempore voluptatem suscipit nobis iste quisquam, eligendi recusandae.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer">
+      <ul class="footer-content">
+        <h4>Mer om Westcoast Education</h4>
+        <li>Topplistan</li>
+        <li>Om Westcoast</li>
+        <li>Här finns vi</li>
+        <li>Lediga Jobb</li>
+        <li>Press</li>
+      </ul>
+      <div class="footer-content">
+        <h4>Kontakta oss</h4>
+        <p>Huvudkontor<br>
+          Westcoast Education AB<br>
+          Lillekärr Södra 170<br>
+          425 31 Hisings Kärra<br><br>
+          contact@westcoasteducation.se</p>
+      </div>
+
+      <div class="footer-content">
+        <h4>Prenumerera på vårt nyhetsbrev</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem aliquam quis iure
+          dicta sequi.</p>
+        <button class="btn">Prenumerera</button>
+      </div>
+    </div>
+    <div class="footer-2">
+      <div id="social-media">
+        <img src="/content/img/iconmonstr-facebook-4-240.png" alt="" srcset="">
+        <img src="/content/img/iconmonstr-instagram-14-240.png" alt="" srcset="">
+        <img src="/content/img/iconmonstr-linkedin-4-240.png" alt="" srcset="">
+        <img src="/content/img/iconmonstr-youtube-9-240.png" alt="" srcset="">
+      </div>
+      <span>© Westcoast Education AB. En del av Academedia. Alla rättigheter reserverade.</span>
+    </div>
+  </footer>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Logga in</h3><span class="close" id="closeLogin">&times;</span>
+      </div>
+      <div><span id="userMessage"></span></div>
+      <select type="user" id="user" name="user" required></select><button id="confirmLogin">Logga in</button>
+      <a href="/app/admin/admin.html"><button class="admin-buttons">Admin</button></a>
+    </div>
+  </div>
 </body>
 
 </html>

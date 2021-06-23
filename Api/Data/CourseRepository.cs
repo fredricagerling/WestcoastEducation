@@ -26,10 +26,15 @@ namespace Api.Data
       context.Remove(course);
     }
 
-    public async Task<Course> GetCourseAsync(string title)
+    public async Task<IEnumerable<Course>> GetCoursesByCategoryAsync(string category)
     {
-      var course = await context.Courses.FirstOrDefaultAsync(c => c.Title == title);
-      return course;
+      return await context.Courses
+        .Where(c => c.Category.CategoryName == category)
+        .Include(t => t.Teacher)
+        .Include(c => c.Category)
+        .Include(s => s.Students)
+        .ThenInclude(s => s.Student)
+        .ToListAsync();
     }
 
     public async Task<Course> GetCourseByIdAsync(int id)
@@ -46,6 +51,20 @@ namespace Api.Data
         .Include(s => s.Students)
         .ThenInclude(s => s.Student)
         .ToListAsync();
+    }
+
+    public async Task<IEnumerable<Course>> GetBestSellerCoursesAsync()
+    {
+      var courses = await context.Courses
+        .Include(t => t.Teacher)
+        .Include(c => c.Category)
+        .Include(s => s.Students)
+        .ThenInclude(s => s.Student)
+        .ToListAsync();
+
+      var filtered = courses.OrderByDescending(s => s.Score).ToList().Take(3);
+
+      return filtered;
     }
 
     public void Update(Course course)

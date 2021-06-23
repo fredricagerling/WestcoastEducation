@@ -78,21 +78,84 @@ namespace Api.Controllers
       }
     }
 
-    [HttpGet("{title}")]
-    public async Task<IActionResult> GetCourseByTitle(string title)
+    [HttpGet("category/{categoryName}")]
+    public async Task<IActionResult> GetCourseByTitle(string categoryName)
     {
-      try
-      {
-        var course = await unitOfWork.CourseRepository.GetCourseAsync(title);
+      var result = await unitOfWork.CourseRepository.GetCoursesByCategoryAsync(categoryName);
 
-        if (course == null) return NotFound();
+      var courses = new List<CourseViewModel>();
 
-        return Ok(course);
-      }
-      catch (Exception ex)
+      if (result == null) return NotFound();
+
+      foreach (var c in result)
       {
-        return StatusCode(500, ex.Message);
+        var students = new List<string>();
+        var course = new CourseViewModel();
+
+        course.CourseId = c.CourseId;
+        course.CourseNumber = c.CourseNumber;
+        course.Title = c.Title;
+        course.Teacher = c.Teacher.Name;
+        course.Category = c.Category.CategoryName;
+        course.Length = c.Length;
+        course.Price = c.Price;
+        course.Description = c.Description;
+        course.Score = c.Score;
+        course.Date = c.Date;
+        course.CourseLevel = c.CourseLevel;
+        course.IsActive = c.IsActive;
+
+        foreach (var s in c.Students)
+        {
+          students.Add($"{s.Student.FirstName} {s.Student.LastName}");
+        }
+
+        course.Students = students;
+        
+        courses.Add(course);
       }
+
+      return Ok(courses);
+    }
+
+    [HttpGet("bestsellers/topthree")]
+    public async Task<IActionResult> GetTopThreeCourses()
+    {
+      var result = await unitOfWork.CourseRepository.GetBestSellerCoursesAsync();
+
+      var courses = new List<CourseViewModel>();
+
+      if (result == null) return NotFound();
+
+      foreach (var c in result)
+      {
+        var students = new List<string>();
+        var course = new CourseViewModel();
+
+        course.CourseId = c.CourseId;
+        course.CourseNumber = c.CourseNumber;
+        course.Title = c.Title;
+        course.Teacher = c.Teacher.Name;
+        course.Category = c.Category.CategoryName;
+        course.Length = c.Length;
+        course.Price = c.Price;
+        course.Description = c.Description;
+        course.Score = c.Score;
+        course.Date = c.Date;
+        course.CourseLevel = c.CourseLevel;
+        course.IsActive = c.IsActive;
+
+        foreach (var s in c.Students)
+        {
+          students.Add($"{s.Student.FirstName} {s.Student.LastName}");
+        }
+
+        course.Students = students;
+        
+        courses.Add(course);
+      }
+
+      return Ok(courses);
     }
 
     [HttpPost()]

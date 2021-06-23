@@ -24,7 +24,7 @@ namespace Api.Controllers
     [HttpGet()]
     public async Task<IActionResult> GetStudents()
     {
-      
+
       var result = await unitOfWork.StudentRepository.GetStudentsAsync();
 
       var students = new List<StudentViewModel>();
@@ -52,7 +52,7 @@ namespace Api.Controllers
         }
 
         student.Courses = courses;
-        
+
         students.Add(student);
       }
 
@@ -62,34 +62,32 @@ namespace Api.Controllers
     [HttpGet("{id}")]
     public async Task<IActionResult> GetStudent(int id)
     {
-      try
-      {
-        var student = await unitOfWork.StudentRepository.GetStudentByIdAsync(id);
 
-        if (student == null) return NotFound();
+      var result = await unitOfWork.StudentRepository.GetStudentByIdAsync(id);
 
-        return Ok(student);
-      }
-      catch (Exception ex)
-      {
-        return StatusCode(500, ex.Message);
-      }
-    }
-    [HttpGet("{name}")]
-    public async Task<IActionResult> GetStudentByName(string name)
-    {
-      try
-      {
-        var student = await unitOfWork.StudentRepository.GetStudentAsync(name);
+      if (result == null) return NotFound();
 
-        if (student == null) return NotFound();
+      var courses = new List<string>();
+      var student = new StudentViewModel();
 
-        return Ok(student);
-      }
-      catch (Exception ex)
+      student.StudentId = result.StudentId;
+      student.FirstName = result.FirstName;
+      student.LastName = result.LastName;
+      student.Email = result.Email;
+      student.PhoneNumber = result.PhoneNumber;
+      student.Address = result.Address;
+      student.PostalNo = result.PostalNo;
+      student.PostalAddress = result.PostalAddress;
+
+
+      foreach (var c in result.Courses)
       {
-        return StatusCode(500, ex.Message);
+        courses.Add($"{c.Course.Title}");
       }
+
+      student.Courses = courses;
+
+      return Ok(student);
     }
 
     [HttpPost()]

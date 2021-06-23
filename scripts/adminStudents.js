@@ -41,7 +41,7 @@ const populateCourseSelector = (courses) => {
   courseList.innerHTML = "";
 
   for (let course of courses) {
-    var result = student[0].courses.find(title => title == course.title);
+    let result = student[0].courses.find(title => title == course.title);
 
     if (result == undefined && course.isActive != false) {
       courseList.insertAdjacentHTML('beforeend',
@@ -91,7 +91,7 @@ function moreInfoHandler(student) {
     </div>`)
 
   for (let i = 0; i < student.courses.length; i++) {
-    courseList.insertAdjacentHTML('beforeend', `<span>${student.courses[i]}</span>`)
+    courseList.insertAdjacentHTML('beforeend', `<span>${student.courses[i]}</span><br>`)
   }
 }
 

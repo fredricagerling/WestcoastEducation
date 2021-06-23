@@ -33,6 +33,17 @@ async function loadStudents() {
   return response.json();
 }
 
+async function loadStudent(studentId) {
+  const url = `https://localhost:5503/api/students/${studentId}`;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
+  return response.json();
+}
+
 async function loadTeachers() {
   const url = `https://localhost:5503/api/teachers`;
   const response = await fetch(url);
@@ -66,7 +77,6 @@ async function submitForm(submit, method, form) {
     url = `https://localhost:5503/api/courses`
   }
   postToDatabase(url, method, viewModel);
-  location.reload();
 }
 
 async function postToDatabase(url, method, viewModel) {
@@ -81,6 +91,28 @@ async function postToDatabase(url, method, viewModel) {
 
   if (!response.ok) {
     throw new Error(response.statusText)
+  }
+
+  return response.json();
+}
+
+async function filterCourses(course) {
+  const url = `https://localhost:5503/api/courses/category/${course}`;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
+  return response.json();
+}
+
+async function bestsellerCourses() {
+  const url = `https://localhost:5503/api/courses/bestsellers/topthree`;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
   }
 
   return response.json();
