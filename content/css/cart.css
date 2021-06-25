@@ -18,6 +18,7 @@
   margin:0.5rem;
   border-radius: 6px;
 }
+
 #courseContainer{
   display:flex;
   flex-direction: column;

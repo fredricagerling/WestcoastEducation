@@ -11,18 +11,18 @@
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/content/css/styles.css">
-  <link rel="stylesheet" href="/content/css/cart.css">
+  <link rel="stylesheet" href="/content/css/my-page.css">
   <link rel="stylesheet" href="/content/css/styles-mobile.css">
+  <link rel="stylesheet" href="/content/css/admin.css">
   <link rel="stylesheet" href="/content/css/modal.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
   <script src="/scripts/fetchApi.js" defer></script>
+  <script src="/scripts/classes.js" defer></script>
   <script src="/scripts/login.js" defer></script>
   <script src="/scripts/navbar.js" defer></script>
-  <script src="/scripts/cart.js" defer></script>
-  <script src="/scripts/classes.js" defer></script>
-
+  <script src="/scripts/myPage.js" defer></script>
 </head>
 
 <body>
@@ -35,7 +35,6 @@
         <li><a href="cart.html"><i class="fas fa-shopping-cart"><span id="cartCounter">0</span></i></a></li>
         <li><button id="loginButton">Logga in</button></li>
         <li><a href="mypage.html"><button id="myPage">A S</button></a></li>
-
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -47,27 +46,48 @@
   <main>
     <section class="landing">
       <div class="landing-text">
-        <h2>Varukorg</h2>
+        <h2>Min sida</h2>
       </div>
     </section>
-    <section class="shopping-cart-container">
-      <div id="shoppingCart">
-        <div id="courseContainer">
-        </div>
-        <div id="emptyCart">
-          <i class="fas fa-shopping-cart"></i>
-          <h3>Din varukorg är tom</h3>
-        </div>
-        <button id="commitPurchase" class="btn" disabled>Slutför köp</button>
-      </div>
-      <div id="total">
-
-        <div id="totalSum">
-          <h4>Total:</h4>
-          <h2><span id="totalPrice">0</span> kr</h2>
-        </div>
-        <input id="enterCoupon" type="text" placeholder="Har du en värdekod?" />
-        <button id="addCoupon" class="btn-secondary">Lägg till kod</button>
+    <section class="my-page-container">
+      <div id="myPageContent">
+        <h2>Mina kurser</h2>
+        <select size="10" id="courseContainer" name="courseId">
+        </select>
+        <h2>Profil</h2>
+        <form id="addForm" onsubmit="return false;">
+          <div class="form-container">
+            <div class="input-window big-window">
+              <label for="firstName">Förnamn</label><br>
+              <input type="text" id="firstName" name="firstName" required placeholder="Förnamn">
+            </div>
+            <div class="input-window big-window">
+              <label for="lastName">Efternamn</label><br>
+              <input type="text" id="lastName" name="lastName" required placeholder="Efternamn">
+            </div>
+            <div class="input-window big-window">
+              <label for="phone">Mobil</label><br>
+              <input type="text" id="phone" name="phone" required placeholder="Mobil">
+            </div>
+            <div class="input-window big-window">
+              <label for="courseNumber">Email</label>
+              <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-window big-window">
+              <label for="address">Adress</label><br>
+              <input type="text" id="address" name="address" required placeholder="Adress">
+            </div>
+            <div class="input-window big-window">
+              <label for="postalNo">Postnummer</label>
+              <input type="text" id="postalNo" name="postalNo" placeholder="Postnummer" required>
+            </div>
+            <div class="input-window big-window">
+              <label for="city">Postort</label>
+              <input type="text" id="city" name="city" placeholder="Postort" required>
+            </div>
+          </div>
+          <button type="submit" id="addCourse" class="btn admin-buttons submit-form">Spara</button>
+        </form>
       </div>
     </section>
   </main>
@@ -107,26 +127,18 @@
       <span>© Westcoast Education AB. En del av Academedia. Alla rättigheter reserverade.</span>
     </div>
   </footer>
-  <div id="purchaseConfirmed" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 id="modalTitle">Köp bekräftat</h3><span class="close">&times;</span>
-      </div>
-      <div id="confirmMessage">
-        <p>Tack för ditt köp!</p>
-      </div>
-    </div>
-  </div>
   <div id="loginModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title">Logga in</h3><span class="close" id="closeLogin">&times;</span>
       </div>
+      <span id="userMessage"></span>
       <div id="login">
         <select type="user" id="user" name="user" required></select>
         <button id="confirmLogin" class="btn">Logga in</button>
       </div>
       <span id="userMessage"></span>
+
       <div id="adminLogin">
         <a href="/app/admin/admin.html"><button class="btn-secondary">Admin</button></a>
       </div>

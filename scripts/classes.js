@@ -14,8 +14,8 @@ class Student {
 
 class StudentCourses {
   constructor(studentCourse) {
+    this.studentId = parseInt(studentCourse.studentId);
     this.courseId = parseInt(studentCourse.courseId);
-    this.studentId = studentToUpdate.id;
   }
 }
 

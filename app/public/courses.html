@@ -18,9 +18,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
-    
-    <script src="/scripts/fetchApi.js" defer></script>
-    <script src="/scripts/login.js" defer></script>
+
+  <script src="/scripts/fetchApi.js" defer></script>
+  <script src="/scripts/login.js" defer></script>
   <script src="/scripts/navbar.js" defer></script>
   <script src="/scripts/courses.js" defer></script>
   <script src="/scripts/courseCategories.js" defer></script>
@@ -36,7 +36,8 @@
         <li class="nav-item"><a href="courses.html">Våra utbildningar</a></li>
         <li class="nav-item"><a href="#">Om oss</a></li>
         <li><a href="cart.html"><i class="fas fa-shopping-cart"><span id="cartCounter">0</span></i></a></li>
-        <li><button id="loginButton">Logga in</button></a></li>
+        <li><button id="loginButton">Logga in</button></li>
+        <li><a href="mypage.html"><button id="myPage">A S</button></a></li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -114,13 +115,12 @@
       </div>
     </div>
   </div>
-  <div id="courseInfo" class="modal">
-  </div>
-  <div id="loginModal" class="modal">
+  <div id="confirmationNotLoggedIn" class="modal">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title">Logga in</h3><span class="close">&times;</span>
       </div>
+      <p>Du måste vara inloggad för att lägga den här kursen i kundkorgen</p>
     </div>
   </div>
   <div id="loginModal" class="modal">
@@ -128,21 +128,28 @@
       <div class="modal-header">
         <h3 class="modal-title">Logga in</h3><span class="close" id="closeLogin">&times;</span>
       </div>
-      <div><span id="userMessage"></span></div>
-      <select type="user" id="user" name="user" required></select><button id="confirmLogin">Logga in</button>
-      <a href="/app/admin/admin.html"><button class="admin-buttons">Admin</button></a>
+      <div id="login">
+        <select type="user" id="user" name="user" required></select>
+        <button id="confirmLogin" class="btn">Logga in</button>
+      </div>
+      <span id="userMessage"></span>
+
+      <div id="adminLogin">
+        <a href="/app/admin/admin.html"><button class="btn-secondary">Admin</button></a>
+      </div>
     </div>
   </div>
-  <div id="loginModal" class="modal">
+  <div id="courseDetailsModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title">Logga in</h3><span class="close" id="closeLogin">&times;</span>
+        <h3 class="modal-title">Kurstitel</h3><span class="close" id="closeDescription">&times;</span>
       </div>
-      <div><span id="userMessage"></span></div>
-      <select type="user" id="user" name="user" required></select><button id="confirmLogin">Logga in</button>
-      <a href="/app/admin/admin.html"><button class="admin-buttons">Admin</button></a>
+      <div>
+        <h3>Kursbeskrivning:</h3><span id="courseDescription"></span>
+      </div>
     </div>
   </div>
+
 </body>
 
 </html>

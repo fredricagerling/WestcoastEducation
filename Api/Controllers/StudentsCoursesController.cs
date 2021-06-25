@@ -37,27 +37,6 @@ namespace Api.Controllers
       }
     }
 
-    [HttpDelete("{studentId}/{courseId}")]
-    public async Task<IActionResult> DeleteCourseFromStudent(int studentId, int courseId)
-    {
-      try
-      {
-        var course = await unitOfWork.StudentsCoursesRepository.GetCourseAsync(studentId, courseId);
-
-        if (course == null) return NotFound();
-
-        unitOfWork.StudentsCoursesRepository.Delete(course);
-        var result = unitOfWork.Complete();
-
-        return NoContent();
-
-      }
-      catch (Exception ex)
-      {
-        return StatusCode(500, ex.Message);
-      }
-    }
-
     [HttpPost()]
     public async Task<IActionResult> AddCourseToStudent(StudentsCoursesViewModel model)
     {

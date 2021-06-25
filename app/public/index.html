@@ -32,6 +32,8 @@
         <li class="nav-item"><a href="#">Om oss</a></li>
         <li><a href="cart.html"><i class="fas fa-shopping-cart"><span id="cartCounter">0</span></i></a></li>
         <li><button id="loginButton">Logga in</button></a></li>
+        <li><a href="mypage.html"><button id="myPage">A S</button></a></li>
+
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -130,9 +132,15 @@
       <div class="modal-header">
         <h3 class="modal-title">Logga in</h3><span class="close" id="closeLogin">&times;</span>
       </div>
-      <div><span id="userMessage"></span></div>
-      <select type="user" id="user" name="user" required></select><button id="confirmLogin">Logga in</button>
-      <a href="/app/admin/admin.html"><button class="admin-buttons">Admin</button></a>
+      <div id="login">
+        <select type="user" id="user" name="user" required></select>
+        <button id="confirmLogin" class="btn">Logga in</button>
+
+      </div>
+      <span id="userMessage"></span>
+      <div id="adminLogin">
+        <a href="/app/admin/admin.html"><button class="btn-secondary">Admin</button></a>
+      </div>
     </div>
   </div>
 </body>

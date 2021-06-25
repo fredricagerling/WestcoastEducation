@@ -93,7 +93,7 @@ function updateCourseHandler(course) {
   CourseNumber.value = course.courseNumber;
   courseToUpdate = course.courseId;
 
-  editForm.addEventListener('submit', submitForm.bind(this, 'updateCourse', 'PUT', editForm));
+  editForm.addEventListener('submit', submitForm.bind(this, 'updateCourse', 'PUT', editForm, courseToUpdate));
 }
 
 function populateTeacherDropDown(teachers) {

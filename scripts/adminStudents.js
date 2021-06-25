@@ -35,10 +35,12 @@ const populateCourseSelector = (courses) => {
   const courseList = document.getElementById('courseContainer');
   const modalTitle = document.getElementById('addCourseToStudentTitle');
   const assignForm = document.querySelector('#assignCourseForm');
+  const studentId = document.getElementById('studentId');
   const student = students.filter(f => f.studentId === studentToUpdate.id);
 
-  modalTitle.innerHTML = `Tilldela kurs till ${studentToUpdate.fullName}`
+  modalTitle.innerHTML = `Tilldela kurs till ${studentToUpdate.fullName}`;
   courseList.innerHTML = "";
+  studentId.value = studentToUpdate.id;
 
   for (let course of courses) {
     let result = student[0].courses.find(title => title == course.title);
@@ -48,6 +50,7 @@ const populateCourseSelector = (courses) => {
         `<option value="${course.courseId}">${course.title}</option>`)
     }
   }
+
   assignForm.addEventListener('submit', submitForm.bind(this, 'assign', 'POST', assignForm));
 }
 
@@ -95,7 +98,7 @@ function moreInfoHandler(student) {
   }
 }
 
-function updateCourseHandler(student) {
+function updateStudentHandler(student) {
   const [FirstName, LastName, Phone, Email, Address, PostalNo, City] = studentInfo;
 
   studentModal.style.display = 'flex';
@@ -109,7 +112,7 @@ function updateCourseHandler(student) {
   studentToUpdate = { id: student.studentId, fullName: `${student.firstName} ${student.lastName}` };
   modalTitle.innerHTML = 'Redigera student';
 
-  form.addEventListener('submit', submitForm.bind(this, 'updateStudent', 'PUT', form));
+  form.addEventListener('submit', submitForm.bind(this, 'updateStudent', 'PUT', form, studentToUpdate.id));
 }
 
 function createStudentTable(studentList) {
@@ -132,7 +135,7 @@ function createStudentTable(studentList) {
     const editStudent = document.getElementById(`editStudent${student.studentId}`);
 
     moreInfo.addEventListener('click', moreInfoHandler.bind(this, student));
-    editStudent.addEventListener('click', updateCourseHandler.bind(this, student));
+    editStudent.addEventListener('click', updateStudentHandler.bind(this, student));
   }
 
   searchTable();

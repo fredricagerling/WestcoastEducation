@@ -5,7 +5,7 @@ async function loadCourseCategories() {
   const response = await fetch(url);
 
   if (!response.ok) {
-      throw new Error(response.statusText);
+    throw new Error(response.statusText);
   }
 
   return response.json();
@@ -55,7 +55,7 @@ async function loadTeachers() {
   return response.json();
 }
 
-async function submitForm(submit, method, form) {
+async function submitForm(submit, method, form, id) {
   const data = new FormData(form);
   const value = Object.fromEntries(data.entries());
   let viewModel, url;
@@ -68,11 +68,11 @@ async function submitForm(submit, method, form) {
     url = 'https://localhost:5503/api/students';
   } else if (submit === 'updateStudent' && method === 'PUT') {
     viewModel = new Student(value);
-    url = `https://localhost:5503/api/students/${studentToUpdate.id}`;
-  } else if(submit === 'updateCourse' && method === 'PUT'){
+    url = `https://localhost:5503/api/students/${id}`;
+  } else if (submit === 'updateCourse' && method === 'PUT') {
     viewModel = new UpdateCourse(value);
-    url = `https://localhost:5503/api/courses/${courseToUpdate}`
-  } else if(submit === 'addCourse' && method === 'POST'){
+    url = `https://localhost:5503/api/courses/${id}`
+  } else if (submit === 'addCourse' && method === 'POST') {
     viewModel = new AddCourse(value);
     url = `https://localhost:5503/api/courses`
   }
@@ -93,7 +93,7 @@ async function postToDatabase(url, method, viewModel) {
     throw new Error(response.statusText)
   }
 
-  return response.json();
+  return response;
 }
 
 async function filterCourses(course) {

@@ -6,19 +6,14 @@ const courseContainer = document.getElementById('courseContainer');
 const purchaseButton = document.getElementById('commitPurchase');
 const printTotalPrice = document.getElementById('totalPrice');
 const sessionStorage = window.sessionStorage;
-const modal = document.getElementById("purchaseConfirmed");
+const confirmationModal = document.getElementById("purchaseConfirmed");
 const closeButton = document.querySelector(".close");
 const cartItem = document.querySelector('.cart-item-description');
 
 purchaseButton.addEventListener('click', confirmPurchase);
 
 closeButton.addEventListener('click', () => {
-  modal.style.display = "none";
-  location.reload();
-})
-
-modal.addEventListener('click', () => {
-  modal.style.display = "none";
+  confirmationModal.style.display = "none";
   location.reload();
 })
 
@@ -37,7 +32,7 @@ function populateCart() {
   updateCartTotal();
 }
 
-function createCartItem(cartItem, index){
+function createCartItem(cartItem, index) {
   courseContainer.insertAdjacentHTML(
     'beforeend',
     `<div class="cart-item" id="courseItem${cartItem.courseId}"}>
@@ -80,8 +75,23 @@ function unsetEmptyCart() {
 }
 
 function confirmPurchase() {
-  sessionStorage.clear();
-  modal.style.display = 'flex';
+  let courses = JSON.parse(sessionStorage.getItem('cartItems'));
+  const url = 'https://localhost:5503/api/studentscourses';
+  const method = 'POST';
+  for (let course of courses) {
+
+    let value = {
+      courseId: course.courseId,
+      studentId: loggedInUser.studentId
+    }
+
+    let viewModel = new StudentCourses(value);
+    postToDatabase(url, method, viewModel);
+  }
+
+  confirmationModal.style.display = 'flex';
+  sessionStorage.removeItem('cartItems');
+  
 }
 
 populateCart();

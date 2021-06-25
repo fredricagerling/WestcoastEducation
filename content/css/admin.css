@@ -3,6 +3,10 @@
   padding:1rem;
 }
 
+.hidden{
+  display:none;
+}
+
 #courseDetails section{
   display: grid;
   grid-template-columns: 33% 33% 33%;
@@ -142,6 +146,10 @@ form label{
 
 .small-window{
   width: 46%;
+}
+
+.big-window{
+  width: 100%;
 }
 
 .address{
